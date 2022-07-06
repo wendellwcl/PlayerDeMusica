@@ -1,7 +1,7 @@
 aside{
     grid-area: aside;
     height: calc(100vh - 165px);
-    min-height: 450px;
+    min-height: 400px;
     display: none;
     background-color: rgba(0, 0, 0, 0.4);
 }
