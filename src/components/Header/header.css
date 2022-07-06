@@ -1,4 +1,11 @@
 header{
     grid-area: header;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background-color: rgba(0, 0, 0, 0.2);
+}
+
+.navbar-toggler:focus{
+    box-shadow: none;
 }
