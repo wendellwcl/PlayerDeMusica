@@ -1,6 +1,8 @@
 //Css
 import './app.css';
 
+import { HashRouter } from 'react-router-dom';
+
 //Components
 import Header from "./components/Header";
 import Main from "./components/Main";
@@ -11,12 +13,14 @@ import Player from "./components/Player";
 function App() {
 
   return (
-    <div className="app">
-      <Header/>
-      <Aside/>
-      <Main/>
-      <Player/>
-    </div>
+    <HashRouter>
+      <div className="app">
+        <Header/>
+        <Aside/>
+        <Main/>
+        <Player/>
+      </div>
+    </HashRouter>
   );
 
 };
