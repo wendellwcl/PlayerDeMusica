@@ -1,4 +1,13 @@
 aside{
-    background-color: aqua;
-    height: 75%;
+    grid-area: aside;
+    height: calc(100vh - 165px);
+    min-height: 450px;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+@media(min-width: 768px){
+    aside{
+        display: block;
+    }
 }

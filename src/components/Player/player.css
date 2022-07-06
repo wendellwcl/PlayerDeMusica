@@ -1,4 +1,4 @@
 .player{
-    height: 15%;
-    background-color: bisque;
+    grid-area: player;
+    background-color: rgba(0, 0, 0, 0.8);
 }

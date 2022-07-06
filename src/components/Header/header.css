@@ -1,4 +1,4 @@
 header{
-    background-color: blueviolet;
-    height: 10%;
+    grid-area: header;
+    background-color: rgba(0, 0, 0, 0.2);
 }

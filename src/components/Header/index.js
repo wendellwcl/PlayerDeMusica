@@ -5,7 +5,7 @@ import './header.css';
 const Header = () => {
 
     return(
-        <header className="col-12">
+        <header>
             Header
         </header>
     );

@@ -11,13 +11,11 @@ import Player from "./components/Player";
 function App() {
 
   return (
-    <div className="app container-fluid g-0">
-      <div className="row g-0">
-        <Header/>
-        <Aside/>
-        <Main/>
-        <Player/>
-      </div>
+    <div className="app">
+      <Header/>
+      <Aside/>
+      <Main/>
+      <Player/>
     </div>
   );
 
