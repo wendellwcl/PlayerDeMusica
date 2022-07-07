@@ -8,6 +8,7 @@ import Header from "./components/Header";
 import Main from "./components/Main";
 import Aside from "./components/Aside";
 import Player from "./components/Player";
+import MobileNav from './components/MobileNav';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Aside/>
         <Main/>
         <Player/>
+        <MobileNav/>
       </div>
     </HashRouter>
   );
