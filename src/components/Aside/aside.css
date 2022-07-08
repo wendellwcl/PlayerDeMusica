@@ -1,6 +1,6 @@
 aside{
     grid-area: aside;
-    min-height: 350px;
+    min-height: 250px;
     display: none;
     background-color: rgba(0, 0, 0, 0.4);
 }

@@ -1,7 +1,37 @@
 .mobileNav{
     grid-area: mobileNav;
-    display: block;
+    display: flex;
+    flex-direction: flex-row;
+    justify-content: space-around;
+    align-items: center;
     background-color: rgba(0, 0, 0, 0.2);
+}
+
+.mobileNav button:not(.btn-close){
+    display: block;
+    height: 100%;
+    width: 60px;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    font-size: 1.5rem;
+    line-height: normal;
+}
+
+.mobileNav button a{
+    text-decoration: none;
+}
+
+.mobileNav .navbar, .mobileNav .container-fluid{
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+.mobileNav .navbar-toggler:focus, .mobileNav .btn-close:focus{
+    box-shadow: none;
 }
 
 @media(min-width: 768px){
