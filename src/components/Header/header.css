@@ -3,5 +3,22 @@ header{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: var(--high-pure);
+}
+
+header .navbar-brand{
+    color: var(--primary-pure);
+}
+
+header .navbar-brand:hover{
+    color: var(--primary-pure);
+}
+
+
+/*-------------------------------------------------------------*/
+header .navbar-brand i{
+    padding: 3px;
+    border-radius: 5px;
+    background-color: var(--primary-pure);
+    color: var(--high-pure);
 }

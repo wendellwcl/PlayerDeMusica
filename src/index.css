@@ -6,6 +6,19 @@
   box-sizing: border-box;
 }
 
+:root{
+  --primary-pure: #FF305C;
+  --primary-dark: #B71858;
+  --high-pure: #FFFFFF;
+  --high-light: #E3E3E3;
+  --high-medium: #CFCFCF;
+  --high-dark: #BABABA;
+  --low-pure: #262626;
+  --low-light: #6F6F6F;
+  --low-medium: #525252;
+  --low-dark: #3F3F3F;
+}
+
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
