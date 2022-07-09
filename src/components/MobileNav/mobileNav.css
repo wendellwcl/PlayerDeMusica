@@ -4,24 +4,7 @@
     flex-direction: flex-row;
     justify-content: space-around;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.2);
-}
-
-.mobileNav button:not(.btn-close){
-    display: block;
-    height: 100%;
-    width: 60px;
-    background-color: transparent;
-    border: none;
-    padding: 0;
-    margin: 0;
-    border-radius: 0;
-    font-size: 1.5rem;
-    line-height: normal;
-}
-
-.mobileNav button a{
-    text-decoration: none;
+    background-color: var(--high-pure);
 }
 
 .mobileNav .navbar, .mobileNav .container-fluid{
@@ -32,6 +15,34 @@
 
 .mobileNav .navbar-toggler:focus, .mobileNav .btn-close:focus{
     box-shadow: none;
+}
+
+.mobileNav button:not(.btn-close){
+    display: block;
+    height: 100%;
+    width: 60px;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    font-size: 1.3rem;
+}
+
+.mobileNav button, .mobileNav a{
+    color: var(--primary-pure);
+}
+
+.mobileNav button:hover, .mobileNav a:hover{
+    color: var(--primary-dark);
+}
+
+.mobileNav .offcanvas-title{
+    color: var(--primary-pure);
+}
+
+.mobileNav .btn-close{
+    background: none;
+    opacity: 1;
+    font-size: 1.5rem;
 }
 
 @media(min-width: 768px){

@@ -39,10 +39,13 @@ const MobileNav = () => {
                     <div className="offcanvas offcanvas-end d-block d-md-none" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                         <div className="offcanvas-header">
                             <h5 className="offcanvas-title" id="offcanvasNavbarLabel">
+                                {/* <img src="" alt="" width="30" height="24" className="d-inline-block align-text-top" /> */}
                                 <i className="bi bi-music-note-beamed me-2"></i>
-                                MUSIC
+                                Music
                             </h5>
-                            <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            <button type="button" className='btn-close' data-bs-dismiss="offcanvas" aria-label="Close">
+                                <i class="bi bi-x-lg"></i>
+                            </button>
                         </div>
                         <div className="offcanvas-body">
                             <ul className="navbar-nav justify-content-end flex-grow-1 pe-3 text-end">

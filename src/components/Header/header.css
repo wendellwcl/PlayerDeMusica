@@ -13,12 +13,3 @@ header .navbar-brand{
 header .navbar-brand:hover{
     color: var(--primary-pure);
 }
-
-
-/*-------------------------------------------------------------*/
-header .navbar-brand i{
-    padding: 3px;
-    border-radius: 5px;
-    background-color: var(--primary-pure);
-    color: var(--high-pure);
-}
