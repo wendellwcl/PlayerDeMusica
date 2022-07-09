@@ -6,10 +6,6 @@ header{
     background-color: var(--high-pure);
 }
 
-header .navbar-brand{
-    color: var(--primary-pure);
-}
-
-header .navbar-brand:hover{
+header .navbar-brand, header .navbar-brand:hover, header .navbar-brand:focus{
     color: var(--primary-pure);
 }
