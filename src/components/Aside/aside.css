@@ -2,7 +2,23 @@ aside{
     grid-area: aside;
     min-height: 250px;
     display: none;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: var(--high-pure);
+}
+
+aside .nav .nav-item:hover{
+    background-color: var(--high-light);
+}
+
+aside .nav .nav-item a{
+    color: var(--primary-pure);
+}
+
+aside .nav .nav-item a:hover{
+    color: var(--primary-dark);
+}
+
+aside .nav .nav-item i{
+    margin-right: 0.5rem;
 }
 
 @media(min-width: 768px){
