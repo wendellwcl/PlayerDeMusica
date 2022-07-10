@@ -11,6 +11,7 @@
     padding: 0;
     margin: 0;
     height: 100%;
+    width: 100%;
 }
 
 .mobileNav .navbar-toggler:focus, .mobileNav .btn-close:focus{
@@ -20,11 +21,20 @@
 .mobileNav button:not(.btn-close){
     display: block;
     height: 100%;
-    width: 60px;
+    width: 100%;
     background-color: transparent;
     border: none;
     border-radius: 0;
-    font-size: 1.3rem;
+}
+
+.mobileNav button a{
+    text-decoration: none;
+    font-size: 0.8rem;
+}
+
+.mobileNav button:not(.btn-close) i{
+    display: block;
+    font-size: 1.2rem;
 }
 
 .mobileNav button, .mobileNav a{
