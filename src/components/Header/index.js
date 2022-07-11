@@ -3,6 +3,7 @@ import './header.css';
 
 //Imports
 import { Link } from 'react-router-dom';
+import { SwitchCheckbox } from '../styled-components';
 
 
 const Header = () => {
@@ -16,11 +17,11 @@ const Header = () => {
                         <i className="bi bi-music-note-beamed"></i>
                         Music
                     </Link>
-                    <label id="switch-container" htmlFor="switch-checkbox-darkmode">
-                        <span id='switch-text'>Dark mode</span>
-                        <input type="checkbox" id="switch-checkbox-darkmode" />
-                        <span id='switch-darkmode'></span>
-                    </label>
+                    <SwitchCheckbox htmlFor="switch-checkbox-header" id="switch-header">
+                        <span className="switch-text">Dark mode</span>
+                        <input type="checkbox" className="switch-checkbox" id="switch-checkbox-header"/>
+                        <span className="switch-darkmode"></span>
+                    </SwitchCheckbox>
                 </div>
             </nav>
         </header>

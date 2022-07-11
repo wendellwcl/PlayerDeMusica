@@ -10,48 +10,8 @@ header .navbar-brand, header .navbar-brand:hover, header .navbar-brand:focus{
     color: var(--primary-pure);
 }
 
-#switch-container{
-    display: flex;
-    align-items: center;
-}
-
-#switch-text{
-    font-size: 0.9rem;
-    color: var(--primary-pure);
-}
-
-#switch-checkbox-darkmode{
-    width: 0;
-    height: 0;
-    opacity: 0;
-}
-
-#switch-checkbox-darkmode:focus + #switch-darkmode{
-    box-shadow: 0 0 3px var(--primary-pure);
-}
-
-#switch-darkmode{
-    display: inline-block;
-    height: 20px;
-    width: 40px;
-    border: 1px solid var(--primary-pure);
-    border-radius: 12px;
-    margin-left: 0.25rem;
-    position: relative;
-}
-
-#switch-darkmode::before{
-    content: '';
-    position: absolute;
-    left: 2px;
-    top: 2px;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background-color: var(--primary-pure);
-    transition: .3s;
-}
-
-#switch-checkbox-darkmode:checked + #switch-darkmode::before{
-    left: 22px;
+@media(max-width: 768px){
+    #switch-header{
+        display: none;
+    }
 }

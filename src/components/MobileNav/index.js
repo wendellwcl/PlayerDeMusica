@@ -3,6 +3,7 @@ import './mobileNav.css';
 
 //Imports
 import { NavLink } from 'react-router-dom';
+import { SwitchCheckbox } from '../styled-components';
 
 
 const MobileNav = () => {
@@ -52,8 +53,12 @@ const MobileNav = () => {
                         </div>
                         <div className="offcanvas-body">
                             <ul className="navbar-nav justify-content-end flex-grow-1 pe-3 text-end">
-                                <li className="nav-item" data-bs-dismiss="offcanvas">
-                                    dark mode
+                                <li className="nav-item d-flex justify-content-end">
+                                    <SwitchCheckbox htmlFor="switch-checkbox-offcanvas">
+                                        <span className="switch-text">Dark mode</span>
+                                        <input type="checkbox" className="switch-checkbox" id="switch-checkbox-offcanvas"/>
+                                        <span className="switch-darkmode"></span>
+                                    </SwitchCheckbox>
                                 </li>
                             </ul>
                         </div>
