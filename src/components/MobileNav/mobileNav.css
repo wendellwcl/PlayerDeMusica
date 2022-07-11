@@ -30,6 +30,7 @@
 .mobileNav button a{
     text-decoration: none;
     font-size: 0.8rem;
+    display: block;
 }
 
 .mobileNav button:not(.btn-close) i{
@@ -38,6 +39,10 @@
 }
 
 .mobileNav button, .mobileNav a{
+    color: var(--low-pure);
+}
+
+.mobileNav a.active{
     color: var(--primary-pure);
 }
 

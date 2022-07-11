@@ -10,6 +10,10 @@ aside .nav .nav-item:hover{
 }
 
 aside .nav .nav-item a{
+    color: var(--low-pure);
+}
+
+aside .nav .nav-item a.active{
     color: var(--primary-pure);
 }
 

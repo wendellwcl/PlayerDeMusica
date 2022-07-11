@@ -2,7 +2,7 @@
 import './aside.css';
 
 //Imports
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 
 const Aside = () => {
@@ -12,22 +12,22 @@ const Aside = () => {
 
             <ul className='nav flex-column'>
                 <li className='nav-item'>
-                    <Link className='nav-link' to="/">
+                    <NavLink className='nav-link' to="/">
                         <i className="bi bi-house-fill"></i>
                         Início
-                    </Link>
+                    </NavLink>
                 </li>
                 <li className='nav-item'>
-                    <Link className='nav-link' to="/playlist">
+                    <NavLink className='nav-link' to="/playlist">
                         <i className="bi bi-music-note-list"></i>
                         Tocando agora
-                    </Link>
+                    </NavLink>
                 </li>
                 <li className='nav-item'>
-                    <Link className='nav-link' to="/liked">
+                    <NavLink className='nav-link' to="/liked">
                         <i className="bi bi-heart-fill"></i>
                         Músicas curtidas
-                    </Link>
+                    </NavLink>
                 </li>
             </ul>
 
