@@ -4,6 +4,7 @@ header{
     flex-direction: column;
     justify-content: center;
     background-color: var(--high-pure);
+    transition: .3s;
 }
 
 header .navbar-brand, header .navbar-brand:hover, header .navbar-brand:focus{
@@ -14,4 +15,15 @@ header .navbar-brand, header .navbar-brand:hover, header .navbar-brand:focus{
     #switch-header{
         display: none;
     }
+}
+
+
+/* ------------------------- DarkMode ------------------------- */
+
+.dark header{
+    background-color: var(--low-pure);
+}
+
+.dark header .switch-text{
+    color: var(--high-pure);
 }

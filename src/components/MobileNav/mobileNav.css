@@ -5,6 +5,7 @@
     justify-content: space-around;
     align-items: center;
     background-color: var(--high-pure);
+    transition: .3s;
 }
 
 .mobileNav .navbar, .mobileNav .container-fluid{
@@ -64,4 +65,27 @@
     .mobileNav{
         display: none;
     }
+}
+
+
+/* ------------------------- DarkMode ------------------------- */
+
+.dark .mobileNav{
+    background-color: var(--low-pure);
+}
+
+.dark .mobileNav button, .dark .mobileNav a{
+    color: var(--high-pure);
+}
+
+.dark .mobileNav a.active{
+    color: var(--primary-pure);
+}
+
+.dark .mobileNav .offcanvas{
+    background-color: var(--low-pure);
+}
+
+.dark .mobileNav .switch-text{
+    color: var(--high-pure);
 }
