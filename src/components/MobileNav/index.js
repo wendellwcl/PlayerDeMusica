@@ -12,7 +12,7 @@ import { DarkmodeContext } from '../../context/DarkmodeContext';
 
 const MobileNav = () => {
 
-    const { darkmode, setDarkmode } = useContext(DarkmodeContext);
+    const { darkmode, handleDarkmode } = useContext(DarkmodeContext);
 
     return(
         <div className='mobileNav'>
@@ -49,8 +49,7 @@ const MobileNav = () => {
                     <div className='offcanvas offcanvas-end d-block d-md-none' tabIndex='-1' id='offcanvasNavbar' aria-labelledby='offcanvasNavbarLabel'>
                         <div className='offcanvas-header'>
                             <h5 className='offcanvas-title' id='offcanvasNavbarLabel'>
-                                {/* <img src='' alt='' width='30' height='24' className='d-inline-block align-text-top' /> */}
-                                <i className='bi bi-music-note-beamed'></i>
+                                <i className='bi bi-music-note-beamed me-2'></i>
                                 Music
                             </h5>
                             <button type='button' className='btn-close' data-bs-dismiss='offcanvas' aria-label='Close'>
@@ -62,7 +61,11 @@ const MobileNav = () => {
                                 <li className='nav-item d-flex justify-content-end'>
                                     <SwitchCheckbox htmlFor='switch-checkbox-offcanvas'>
                                         <span className='switch-text'>Dark mode</span>
-                                        <input type='checkbox' className='switch-checkbox' id='switch-checkbox-offcanvas' checked={darkmode} onChange={() => setDarkmode(!darkmode)}/>
+                                        <input type='checkbox' 
+                                                className='switch-checkbox' 
+                                                id='switch-checkbox-offcanvas'
+                                                checked={darkmode ? darkmode : false} 
+                                                onChange={() => handleDarkmode()}/>
                                         <span className='switch-darkmode'></span>
                                     </SwitchCheckbox>
                                 </li>

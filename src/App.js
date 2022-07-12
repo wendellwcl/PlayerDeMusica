@@ -3,7 +3,7 @@ import './app.css';
 
 //Imports
 import { HashRouter } from 'react-router-dom';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 
 //Components
 import Header from './components/Header';
@@ -18,7 +18,13 @@ import { DarkmodeContext } from './context/DarkmodeContext';
 
 function App() {
 
-  const { darkmode } = useContext(DarkmodeContext);
+  const { darkmode, setDarkmode } = useContext(DarkmodeContext);
+
+  //checar darkmode localStorage
+  useEffect(() => {
+    const darkmodeStorage = localStorage.getItem('darkmode');
+    setDarkmode(JSON.parse(darkmodeStorage) || false);
+  }, [setDarkmode]);
 
   return (
     <HashRouter>

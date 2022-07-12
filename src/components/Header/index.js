@@ -12,7 +12,7 @@ import { DarkmodeContext } from '../../context/DarkmodeContext';
 
 const Header = () => {
 
-    const { darkmode, setDarkmode } = useContext(DarkmodeContext);
+    const { darkmode, handleDarkmode } = useContext(DarkmodeContext);
 
     return(
         <header>
@@ -25,7 +25,11 @@ const Header = () => {
                     </Link>
                     <SwitchCheckbox htmlFor='switch-checkbox-header' id='switch-header'>
                         <span className='switch-text'>Dark mode</span>
-                        <input type='checkbox' className='switch-checkbox' id='switch-checkbox-header' checked={darkmode} onChange={() => setDarkmode(!darkmode)}/>
+                        <input type='checkbox' 
+                                className='switch-checkbox' 
+                                id='switch-checkbox-header' 
+                                checked={darkmode ? darkmode : false} 
+                                onChange={() => handleDarkmode()}/>
                         <span className='switch-darkmode'></span>
                     </SwitchCheckbox>
                 </div>
