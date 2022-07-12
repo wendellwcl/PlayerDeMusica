@@ -6,7 +6,7 @@ aside{
 }
 
 aside .nav .nav-item:hover{
-    background-color: var(--high-light);
+    background-color: var(--high-medium);
 }
 
 aside .nav .nav-item a{
