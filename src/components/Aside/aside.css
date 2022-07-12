@@ -2,8 +2,7 @@ aside{
     grid-area: aside;
     min-height: 250px;
     display: none;
-    background-color: var(--high-pure);
-    transition: .3s;
+    background-color: var(--high-light);
 }
 
 aside .nav .nav-item:hover{

@@ -19,8 +19,7 @@ const Header = () => {
             <nav className='navbar'>
                 <div className='container'>
                     <Link className='navbar-brand' to='/'>
-                    {/* <img src='' alt='' width='30' height='24' className='d-inline-block align-text-top' /> */}
-                        <i className='bi bi-music-note-beamed'></i>
+                        <i className='bi bi-music-note-beamed me-2'></i>
                         Music
                     </Link>
                     <SwitchCheckbox htmlFor='switch-checkbox-header' id='switch-header'>

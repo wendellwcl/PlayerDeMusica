@@ -5,7 +5,6 @@
     justify-content: space-around;
     align-items: center;
     background-color: var(--high-pure);
-    transition: .3s;
 }
 
 .mobileNav .navbar, .mobileNav .container-fluid{
@@ -47,10 +46,6 @@
     color: var(--primary-pure);
 }
 
-.mobileNav button:hover, .mobileNav a:hover{
-    color: var(--primary-dark);
-}
-
 .mobileNav .offcanvas-title{
     color: var(--primary-pure);
 }
@@ -59,6 +54,22 @@
     background: none;
     opacity: 1;
     font-size: 1.5rem;
+}
+
+.mobileNav .offcanvas-body .switch-text{
+    color: var(--low-pure);
+}
+
+.mobileNav .offcanvas-body .switch-checkbox:focus + .switch-darkmode{
+    box-shadow: 0 0 3px var(--primary-pure);
+}
+
+.mobileNav .offcanvas-body .switch-darkmode{
+    border: 1px solid var(--primary-pure);
+}
+
+.mobileNav .offcanvas-body .switch-darkmode::before{
+    background: var(--primary-pure);
 }
 
 @media(min-width: 768px){

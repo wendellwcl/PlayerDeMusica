@@ -3,12 +3,12 @@ header{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: var(--high-pure);
-    transition: .3s;
+    background-color: var(--primary-pure);
+    filter: drop-shadow(0 0 1px var(--primary-pure));
 }
 
 header .navbar-brand, header .navbar-brand:hover, header .navbar-brand:focus{
-    color: var(--primary-pure);
+    color: var(--high-pure);
 }
 
 @media(max-width: 768px){
@@ -25,5 +25,17 @@ header .navbar-brand, header .navbar-brand:hover, header .navbar-brand:focus{
 }
 
 .dark header .switch-text{
-    color: var(--high-pure);
+    color: var(--primary-pure);
+}
+
+.dark header .switch-checkbox:focus + .switch-darkmode{
+    box-shadow: 0 0 3px var(--primary-pure);
+}
+
+.dark header .switch-darkmode{
+    border: 1px solid var(--primary-pure);
+}
+
+.dark header .switch-darkmode::before{
+    background: var(--primary-pure);
 }

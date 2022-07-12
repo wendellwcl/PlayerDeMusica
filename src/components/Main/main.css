@@ -2,5 +2,44 @@ main{
     grid-area: main;
     min-height: 250px;
     overflow-y: scroll;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: var(--high-pure);
+}
+
+main::-webkit-scrollbar{
+    width: .75em;
+}
+
+main::-webkit-scrollbar-track{
+    background: transparent;
+}
+
+main::-webkit-scrollbar-thumb{
+    background: var(--high-medium);
+    border-radius: 100vw;
+    border: 3px solid var(--high-pure);
+}
+
+main:hover::-webkit-scrollbar-thumb{
+    background-color: var(--primary-pure);
+}
+
+@supports(scrollbar-color: var(--primary-pure) transparent){
+    *{
+        scrollbar-color: var(--high-medium) transparent;
+        scrollbar-width: thin;
+    }
+
+    main:hover{
+        scrollbar-color: var(--primary-pure) transparent;
+    }
+}
+
+
+/* ------------------------- DarkMode ------------------------- */
+.dark main{
+    background-color: var(--low-pure);
+}
+
+.dark main::-webkit-scrollbar-thumb{
+    border-color: var(--low-pure);
 }
