@@ -54,11 +54,30 @@ const Home = () => {
                 <h2 className='section-title'>Top {section.sectionName}</h2>
                 <div className="card-container">
                     {section.arr.map(item => (
-                        <CardHome key={item.name} name={item.name} img={item.img}/>
+                        <CardHome key={item.name} name={item.name} img={item.img} />
                     ))}
                 </div>
             </section>
             ))}
+
+            {/* Modal */}
+            <div className="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+                <div className="modal-dialog">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h5 className="modal-title" id="infoModalLabel">Seção ilustrativa</h5>
+                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                <i className='bi bi-x-lg'></i>
+                            </button>
+                        </div>
+                        <div className="modal-body">
+                            A seção que você clicou é ilustrativa.
+                            Por favor <mark>clique na seção "Destaque - Ouça agora"</mark> para acessar a playlist disponível.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
         </section>
     );

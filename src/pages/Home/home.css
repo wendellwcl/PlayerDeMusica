@@ -2,6 +2,12 @@
     padding: 1rem;
 }
 
+.home-container mark{
+    font-weight: bold;
+    color: var(--primary-pure);
+    background: none;
+}
+
 .section-title{
     font-size: 1.5rem;
     font-weight: bold;
@@ -51,9 +57,30 @@
     inset: 0;
 }
 
+/* Modal */
+.home-container .btn-close {
+    background: none;
+    font-size: 1.5rem;
+    opacity: 1;
+    box-shadow: none;
+}
+
 
 /* ------------------------- DarkMode ------------------------- */
 
-.dark .section-title{
+.dark .home-container .section-title{
     color: var(--high-pure);
+}
+
+.dark .home-container .modal-content{
+    background-color: var(--low-pure);
+    color: var(--high-pure);
+}
+
+.dark .home-container .modal-header{
+    border-bottom: 1px solid var(--low-dark);
+}
+
+.dark .home-container .btn-close {
+    color: var(--primary-pure);
 }
