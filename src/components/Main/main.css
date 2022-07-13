@@ -5,21 +5,21 @@ main{
     background-color: var(--high-pure);
 }
 
-main::-webkit-scrollbar{
+::-webkit-scrollbar{
     width: .75em;
 }
 
-main::-webkit-scrollbar-track{
+::-webkit-scrollbar-track{
     background: transparent;
 }
 
-main::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb{
     background: var(--high-medium);
     border-radius: 100vw;
     border: 3px solid var(--high-pure);
 }
 
-main:hover::-webkit-scrollbar-thumb{
+:hover::-webkit-scrollbar-thumb{
     background-color: var(--primary-pure);
 }
 
@@ -29,7 +29,7 @@ main:hover::-webkit-scrollbar-thumb{
         scrollbar-width: thin;
     }
 
-    main:hover{
+    :hover{
         scrollbar-color: var(--primary-pure) transparent;
     }
 }
@@ -40,6 +40,6 @@ main:hover::-webkit-scrollbar-thumb{
     background-color: var(--low-pure);
 }
 
-.dark main::-webkit-scrollbar-thumb{
+.dark ::-webkit-scrollbar-thumb{
     border-color: var(--low-pure);
 }

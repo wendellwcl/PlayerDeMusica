@@ -1,0 +1,59 @@
+.home-container{
+    padding: 1rem;
+}
+
+.section-title{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--low-pure);
+}
+
+.card-container{
+    position: relative;
+    height: 200px;
+    display: flex;
+    overflow-x: scroll;
+}
+
+.highlight-container, .section-container:not(:last-child){
+    margin-bottom: 3rem;
+}
+
+
+/* Seção Highlight */
+
+.highlight{
+    width: 100%;
+    height: 200px;
+    max-width: 450px;
+    padding: .75rem;
+    border-radius: 15px;
+    background: var(--primary-pure) url('../../assets/img/highlight-bg.png') no-repeat center;
+    background-size: cover;
+    overflow: hidden;
+    position: relative;
+}
+
+.highlight h3, .highlight p{
+    color: var(--high-pure);
+}
+
+.highlight h3{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.highlight a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+}
+
+
+/* ------------------------- DarkMode ------------------------- */
+
+.dark .section-title{
+    color: var(--high-pure);
+}
