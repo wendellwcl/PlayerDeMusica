@@ -1,11 +1,23 @@
 //Css
 import './player.css';
 
+//Assets
+import SmileForMe from '../../assets/musics/smile-for-me-kidcut-main-version-01-26-3177.mp3'
+
+//Imports
+import { useState } from 'react';
+
 
 const Player = () => {
 
-    const play = false
+    const [ play, setPlay] = useState(false);
     const liked = false
+
+    function handleMusic(){
+        const music = document.querySelector('#music');
+        play ? music.pause() : music.play();
+        setPlay(!play);
+    }
 
     function handleProgress(value){
         const progressBar = document.querySelector('#progress-bar');
@@ -14,6 +26,8 @@ const Player = () => {
 
     return(
         <section id="player">
+
+            <audio src={SmileForMe} id='music'></audio>
             
             <div id='player-controls'>
 
@@ -25,7 +39,7 @@ const Player = () => {
                     <button type='button' id='btn-prev'>
                         <i className="bi bi-caret-left-fill"></i>
                     </button>
-                    <button type='button' id='btn-play-pause'>
+                    <button type='button' id='btn-play-pause' onClick={() => handleMusic()}>
                         { play ? <i className="bi bi-pause-circle-fill"></i> : <i className="bi bi-play-circle-fill"></i> }
                     </button>
                     <button type='button' id='btn-next'>
