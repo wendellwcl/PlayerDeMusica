@@ -1,16 +1,17 @@
 //Css
 import './player.css';
 
-//Assets
-import SmileForMe from '../../assets/musics/smile-for-me-kidcut-main-version-01-26-3177.mp3';
-import Oly from '../../assets/musics/oly-walz-main-version-01-06-12377.mp3';
-import JumpAround from '../../assets/musics/jump-around-all-good-folks-main-version-00-49-750.mp3';
-
 //Imports
-import { useState, useRef } from 'react';
+import { useState, useRef, useContext } from 'react';
+
+//Context
+import { PlaylistsContext } from '../../context/PlaylistsContext';
 
 
 const Player = () => {
+
+    const { currentPlaylist } = useContext(PlaylistsContext);
+    console.log(currentPlaylist);
 
     //Referenciando Audio
     const audioEl = useRef();
@@ -85,7 +86,7 @@ const Player = () => {
         <section id="player">
 
             <audio 
-                src={JumpAround} 
+                src={''} 
                 ref={audioEl} 
                 onTimeUpdate={e => handleProgress(e.target.currentTime)} 
                 onLoadedMetadata={() => handleDuration()}

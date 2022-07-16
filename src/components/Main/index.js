@@ -17,7 +17,7 @@ const Main = () => {
 
             <Routes>
                 <Route path='/' element={<Home/>}/>
-                <Route path='playlist' element={<Playlist/>}/>
+                <Route path='playlist/:playlist' element={<Playlist/>}/>
                 <Route path='liked' element={<Liked/>}/>
             </Routes>
 
