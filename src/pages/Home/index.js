@@ -25,14 +25,14 @@ const Home = () => {
         {img: TheWeeknd, name: 'The Weeknd'}
     ];
 
-    const playlists = [
+    const playlistsTop = [
         {img: World, name: 'Top 50 mundo'},
         {img: Brasil, name: 'Top 50 Brasil'}
     ];
 
     const sections = [
         {sectionName: 'artistas', arr: artists},
-        {sectionName: 'playlists', arr: playlists}
+        {sectionName: 'playlists', arr: playlistsTop}
     ];
 
     return(

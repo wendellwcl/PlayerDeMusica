@@ -1,16 +1,27 @@
 //Imports
+import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
+
+//Context
+import { PlaylistsContext } from "../../context/PlaylistsContext";
+
 
 const Playlist = () => {
 
-    const { playlist } = useParams();
+    const { playlists } = useContext(PlaylistsContext);
 
-    /* const { playlists } = useContext(playlistContext) */
+    const { playlistName } = useParams();
+    const [ playlist, setPlaylist ] = useState();
+
+    useEffect(() => {
+        setPlaylist((playlists.find(item => item.name === playlistName)).musics);
+    }, [playlistName, playlists]);
 
     return(
         <div>
-            Playlist: 
-            {playlist}
+            {playlist && playlist.map(music => (
+                <div>{music.name}</div>
+            ))}
         </div>
     );
 

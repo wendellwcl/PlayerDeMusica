@@ -2,16 +2,10 @@
 import './player.css';
 
 //Imports
-import { useState, useRef, useContext } from 'react';
-
-//Context
-import { PlaylistsContext } from '../../context/PlaylistsContext';
+import { useState, useRef } from 'react';
 
 
 const Player = () => {
-
-    const { currentPlaylist } = useContext(PlaylistsContext);
-    console.log(currentPlaylist);
 
     //Referenciando Audio
     const audioEl = useRef();

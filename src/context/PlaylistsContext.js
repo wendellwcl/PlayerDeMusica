@@ -1,5 +1,5 @@
 //Imports
-import { createContext, useState } from "react";
+import { createContext } from "react";
 
 //Assets
 import SmileForMe from '../assets/musics/smile-for-me-kidcut-main-version-01-26-3177.mp3';
@@ -13,14 +13,16 @@ export const PlaylistsContextProvider = ({ children }) => {
     const playlists = [
         {
             name: 'destaque',
-            musics: [ SmileForMe, Oly, JumpAround ]
+            musics: [
+                        {name: 'Smile form me', src: SmileForMe},
+                        {name: 'Oly', src: Oly},
+                        {name: 'Jump Around', src: JumpAround}
+                    ]
         }
     ];
 
-    const [ currentPlaylist, setCurrentPlaylist ]= useState();
-
     return(
-        <PlaylistsContext.Provider value={ { playlists, currentPlaylist, setCurrentPlaylist } }>
+        <PlaylistsContext.Provider value={ { playlists } }>
             { children }
         </PlaylistsContext.Provider>
     );
