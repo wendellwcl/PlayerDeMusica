@@ -13,7 +13,7 @@ const Playlist = () => {
     const { playlists, currentPlaylist, setCurrentPlaylist } = useContext(PlaylistsContext);
 
     
-    //Simulando uma requisição ao servidor (context)
+    //Simulando uma requisição ao servidor (porém utilizando context)
     useEffect(() => {
         function loadPlaylist(){
             const response = playlists.find(item => item.name === playlistName);
