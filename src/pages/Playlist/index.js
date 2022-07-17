@@ -1,5 +1,5 @@
 //Imports
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 
 //Context
@@ -7,20 +7,26 @@ import { PlaylistsContext } from "../../context/PlaylistsContext";
 
 
 const Playlist = () => {
-
-    const { playlists } = useContext(PlaylistsContext);
-
+    
     const { playlistName } = useParams();
-    const [ playlist, setPlaylist ] = useState();
 
+    const { playlists, currentPlaylist, setCurrentPlaylist } = useContext(PlaylistsContext);
+
+    
+    //Simulando uma requisição ao servidor (context)
     useEffect(() => {
-        setPlaylist((playlists.find(item => item.name === playlistName)).musics);
-    }, [playlistName, playlists]);
+        function loadPlaylist(){
+            const response = playlists.find(item => item.name === playlistName);
+            setCurrentPlaylist(response);
+        };
+        loadPlaylist();
+    }, []);
+    
 
     return(
         <div>
-            {playlist && playlist.map(music => (
-                <div>{music.name}</div>
+            {currentPlaylist && currentPlaylist.musics.map(music => (
+                <div key={music.name}>{music.name}</div>
             ))}
         </div>
     );
