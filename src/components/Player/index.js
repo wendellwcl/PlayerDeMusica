@@ -9,7 +9,9 @@ import { MusicPlayerContext } from '../../context/MusicPlayerContext';
 
 const Player = () => {
 
+    //Música Atual
     const { currentMusic } = useContext(MusicPlayerContext);
+
 
     //Referenciando Audio
     const audioEl = useRef();
@@ -30,7 +32,7 @@ const Player = () => {
 
 
     //Play e Pause
-    function handleMusic(){
+    function handlePlayPause(){
         play ? music.pause() : music.play();
         setPlay(!play);
     }
@@ -56,12 +58,18 @@ const Player = () => {
         };
     };
 
-    //Setar/atualizar duração da musica
-    function handleDuration(){
+    //Ações após uma música ser carregada
+    function actionsAfterLoad(){
+
+        //Obtendo e setando duração da música
         let time = music.duration
         let { minutes, seconds } = timeToMinutes(time);
         setDuration(`${minutes}:${(seconds)}`);
         setDurationPercentage(time / 100);
+
+        //Play / Executar música
+        music.play();
+        setPlay(true);
     };
 
     //Ações quando a música terminar
@@ -87,22 +95,22 @@ const Player = () => {
                 src={currentMusic && currentMusic.src} 
                 ref={audioEl} 
                 onTimeUpdate={e => handleProgress(e.target.currentTime)} 
-                onLoadedMetadata={() => handleDuration()}
+                onLoadedMetadata={() => actionsAfterLoad()}
                 onEnded={() => handleEnd()}
-                >
+            >
             </audio>
             
             <div id='player-controls'>
 
                 <div id='music-display'>
-                    <span id='music-title'>Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
+                    <span id='music-title'>{currentMusic ? `${currentMusic.title} - ${currentMusic.artist}` : ''}</span>
                 </div>
 
                 <div id='controls-panel'>
                     <button type='button' id='btn-prev'>
                         <i className="bi bi-caret-left-fill"></i>
                     </button>
-                    <button type='button' id='btn-play-pause' onClick={() => handleMusic()}>
+                    <button type='button' id='btn-play-pause' onClick={() => handlePlayPause()}>
                         { play ? <i className="bi bi-pause-circle-fill"></i> : <i className="bi bi-play-circle-fill"></i> }
                     </button>
                     <button type='button' id='btn-next'>
