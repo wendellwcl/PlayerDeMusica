@@ -3,8 +3,10 @@ import './mobileNav.css';
 
 //Imports
 import { NavLink } from 'react-router-dom';
-import { SwitchCheckbox } from '../styled-components';
 import { useContext } from 'react';
+
+//Components
+import { SwitchCheckbox } from '../styled-components';
 
 //Context
 import { DarkmodeContext } from '../../context/DarkmodeContext';
