@@ -34,7 +34,7 @@ const Playlist = () => {
     return(
         <div>
             
-            <h2 id='playlist-title'>{currentPlaylist && currentPlaylist.name}</h2>
+            <h2 id='playlist-title'>{currentPlaylist && currentPlaylist.name.replace('_', ' ')}</h2>
 
             <ul id='musics-playlist'>
                 {currentPlaylist && currentPlaylist.musics.map(music => (

@@ -44,7 +44,7 @@ const Home = () => {
                 <div className='highlight'>
                     <h3>Ouça agora</h3>
                     <p>Confira agora nossa playlist, uma seleção de músicas feita especialmente para você!</p>
-                    <Link to={`/playlist/destaque`}></Link>
+                    <Link to={`/playlist/ouça_agora`}></Link>
                 </div>
             </section>
 

@@ -13,7 +13,7 @@ export const DataPlaylistsContextProvider = ( { children } ) => {
 
     const playlists = [
         {
-            name: 'destaque',
+            name: 'ouça_agora',
             musics: [
                         {
                             title: 'Smile For Me', 
