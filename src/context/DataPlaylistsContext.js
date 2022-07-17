@@ -16,7 +16,7 @@ export const DataPlaylistsContextProvider = ( { children } ) => {
             name: 'destaque',
             musics: [
                         {
-                            name: 'Smile For Me', 
+                            title: 'Smile For Me', 
                             artist: 'Kidcut',
                             album: 'Music from Uppbeat (free for Creators!)',
                             link: 'https://uppbeat.io/t/kidcut/smile-for-me',
@@ -24,7 +24,7 @@ export const DataPlaylistsContextProvider = ( { children } ) => {
                             src: SmileForMe
                         },
                         {
-                            name: 'Oly', 
+                            title: 'Oly', 
                             artist: 'Walz',
                             album: 'Music from Uppbeat (free for Creators!)',
                             link: 'https://uppbeat.io/t/walz/oly',
@@ -32,7 +32,7 @@ export const DataPlaylistsContextProvider = ( { children } ) => {
                             src: Oly
                         },
                         {
-                            name: 'Jump Around', 
+                            title: 'Jump Around', 
                             artist: 'All Good Folks',
                             album: 'Music from Uppbeat (free for Creators!)',
                             link: 'https://uppbeat.io/t/all-good-folks/jump-around',

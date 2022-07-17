@@ -2,10 +2,14 @@
 import './player.css';
 
 //Imports
-import { useState, useRef } from 'react';
+import { useState, useRef, useContext } from 'react';
+
+import { MusicPlayerContext } from '../../context/MusicPlayerContext';
 
 
 const Player = () => {
+
+    const { currentMusic } = useContext(MusicPlayerContext);
 
     //Referenciando Audio
     const audioEl = useRef();
@@ -80,7 +84,7 @@ const Player = () => {
         <section id="player">
 
             <audio 
-                src={''} 
+                src={currentMusic && currentMusic.src} 
                 ref={audioEl} 
                 onTimeUpdate={e => handleProgress(e.target.currentTime)} 
                 onLoadedMetadata={() => handleDuration()}

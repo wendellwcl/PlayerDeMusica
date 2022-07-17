@@ -1,3 +1,6 @@
+//Css
+import './playlist.css';
+
 //Imports
 import { useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
@@ -6,20 +9,23 @@ import { useParams } from "react-router-dom";
 import { DataPlaylistsContext } from '../../context/DataPlaylistsContext';
 import { MusicPlayerContext } from "../../context/MusicPlayerContext";
 
+//Components
+import { ListItemPlaylist } from "../../components/styled-components";
+
 
 const Playlist = () => {
     
     const { playlistName } = useParams();
 
     const { playlists } = useContext(DataPlaylistsContext);
-    const { currentPlaylist, setCurrentPlaylist } = useContext(MusicPlayerContext);
+    const { currentPlaylist, setCurrentPlaylist, setCurrentMusic } = useContext(MusicPlayerContext);
 
     
     //Simulando uma requisição ao servidor (porém utilizando context)
     useEffect(() => {
         async function loadPlaylist(){
-            const response = playlists.find(item => item.name === playlistName);
-            setCurrentPlaylist(response);
+            const response = await playlists.find(playlist => playlist.name === playlistName);
+            await setCurrentPlaylist(response);
         };
         loadPlaylist();
     }, []);
@@ -27,9 +33,20 @@ const Playlist = () => {
 
     return(
         <div>
-            {currentPlaylist && currentPlaylist.musics.map(music => (
-                <div key={music.name}>{music.name}</div>
-            ))}
+            
+            <h2>{currentPlaylist && currentPlaylist.name}</h2>
+
+            <ul id='musics-playlist'>
+                {currentPlaylist && currentPlaylist.musics.map(music => (
+                    <ListItemPlaylist key={music.title} onClick={() => setCurrentMusic(music)}>
+                        <h3>{music.title} - {music.artist}</h3>
+                        <h4>{music.album}</h4>
+                        <a href={music.link} target='_blank' rel='noreferrer'>{music.link}</a>
+                        <span>{music.license}</span>
+                    </ListItemPlaylist>
+                ))}
+            </ul>
+
         </div>
     );
 

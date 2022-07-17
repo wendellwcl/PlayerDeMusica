@@ -45,3 +45,32 @@ export const SwitchCheckbox = styled.label`
         left: 22px;
     }
 `
+
+export const ListItemPlaylist = styled.li`
+
+    list-style: none;
+    padding: 1rem;
+    border-bottom: 1px solid var(--high-light);
+    cursor: pointer;
+
+    h3{
+        font-size: 1.1rem;
+        font-weight: bold;
+    }
+
+    h4{
+        font-size: .9rem;
+        margin: 0;
+    }
+
+    a, span{
+        display: block;
+        text-decoration: none;
+        font-size: .9rem;
+    }
+
+    a:hover{
+        color: var(--primary-pure);
+    }
+
+`
