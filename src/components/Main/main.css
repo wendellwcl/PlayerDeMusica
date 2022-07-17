@@ -1,6 +1,7 @@
 main{
     grid-area: main;
     min-height: 250px;
+    padding: 1rem;
     overflow-y: scroll;
     background-color: var(--high-pure);
 }

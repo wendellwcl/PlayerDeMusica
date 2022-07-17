@@ -50,27 +50,32 @@ export const ListItemPlaylist = styled.li`
 
     list-style: none;
     padding: 1rem;
-    border-bottom: 1px solid var(--high-light);
+    border-radius: 15px;
     cursor: pointer;
+    color: var(--low-pure);
 
-    h3{
-        font-size: 1.1rem;
+    &:hover{
+        background-color: var(--high-light);
+    }
+
+    .music-title{
+        font-size: .8rem;
         font-weight: bold;
     }
 
-    h4{
-        font-size: .9rem;
+    .album{
+        font-size: .8rem;
         margin: 0;
     }
 
-    a, span{
+    .music-link, .license{
         display: block;
         text-decoration: none;
-        font-size: .9rem;
+        font-size: .8rem;
     }
-
-    a:hover{
+    
+    .music-link:hover{
+        font-weight: bold;
         color: var(--primary-pure);
     }
-
 `

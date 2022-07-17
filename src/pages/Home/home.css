@@ -1,7 +1,3 @@
-.home-container{
-    padding: 1rem;
-}
-
 .home-container mark{
     font-weight: bold;
     color: var(--primary-pure);

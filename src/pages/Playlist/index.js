@@ -34,15 +34,15 @@ const Playlist = () => {
     return(
         <div>
             
-            <h2>{currentPlaylist && currentPlaylist.name}</h2>
+            <h2 id='playlist-title'>{currentPlaylist && currentPlaylist.name}</h2>
 
             <ul id='musics-playlist'>
                 {currentPlaylist && currentPlaylist.musics.map(music => (
-                    <ListItemPlaylist key={music.title} onClick={() => setCurrentMusic(music)}>
-                        <h3>{music.title} - {music.artist}</h3>
-                        <h4>{music.album}</h4>
-                        <a href={music.link} target='_blank' rel='noreferrer'>{music.link}</a>
-                        <span>{music.license}</span>
+                    <ListItemPlaylist className='list-item-playlist' key={music.title} onClick={() => setCurrentMusic(music)}>
+                        <h3 className='music-title'>{music.title} - {music.artist}</h3>
+                        <h4 className='album'>{music.album}</h4>
+                        <a href={music.link} target='_blank' rel='noreferrer' className='music-link'>{music.link}</a>
+                        <span className='license'>{music.license}</span>
                     </ListItemPlaylist>
                 ))}
             </ul>
