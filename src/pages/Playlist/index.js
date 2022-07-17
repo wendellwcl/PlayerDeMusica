@@ -3,19 +3,21 @@ import { useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 
 //Context
-import { PlaylistsContext } from "../../context/PlaylistsContext";
+import { DataPlaylistsContext } from '../../context/DataPlaylistsContext';
+import { MusicPlayerContext } from "../../context/MusicPlayerContext";
 
 
 const Playlist = () => {
     
     const { playlistName } = useParams();
 
-    const { playlists, currentPlaylist, setCurrentPlaylist } = useContext(PlaylistsContext);
+    const { playlists } = useContext(DataPlaylistsContext);
+    const { currentPlaylist, setCurrentPlaylist } = useContext(MusicPlayerContext);
 
     
     //Simulando uma requisição ao servidor (porém utilizando context)
     useEffect(() => {
-        function loadPlaylist(){
+        async function loadPlaylist(){
             const response = playlists.find(item => item.name === playlistName);
             setCurrentPlaylist(response);
         };

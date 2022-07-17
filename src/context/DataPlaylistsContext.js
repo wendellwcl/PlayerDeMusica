@@ -1,14 +1,15 @@
 //Imports
-import { createContext, useState } from "react";
+import { createContext } from "react";
 
 //Assets
 import SmileForMe from '../assets/musics/smile-for-me-kidcut-main-version-01-26-3177.mp3';
 import Oly from '../assets/musics/oly-walz-main-version-01-06-12377.mp3';
 import JumpAround from '../assets/musics/jump-around-all-good-folks-main-version-00-49-750.mp3';
 
-export const PlaylistsContext = createContext();
 
-export const PlaylistsContextProvider = ({ children }) => {
+export const DataPlaylistsContext = createContext();
+
+export const DataPlaylistsContextProvider = ( { children } ) => {
 
     const playlists = [
         {
@@ -18,15 +19,20 @@ export const PlaylistsContextProvider = ({ children }) => {
                         {name: 'Oly', src: Oly},
                         {name: 'Jump Around', src: JumpAround}
                     ]
+        },
+        {
+            name: 'J.Cole',
+            musics: [
+                {name: 'G.O.M.D'},
+                {name: 'She Knows'}
+            ]
         }
     ];
 
-    const [ currentPlaylist, setCurrentPlaylist ] = useState();
-
     return(
-        <PlaylistsContext.Provider value={ { playlists, currentPlaylist, setCurrentPlaylist } }>
+        <DataPlaylistsContext.Provider value={ { playlists } }>
             { children }
-        </PlaylistsContext.Provider>
+        </DataPlaylistsContext.Provider>
     );
 
 };
