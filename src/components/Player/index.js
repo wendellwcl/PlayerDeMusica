@@ -89,7 +89,7 @@ const Player = () => {
 
 
     return(
-        <section id="player">
+        <section id="player" className={currentMusic && 'show'}>
 
             <audio 
                 src={currentMusic && currentMusic.src} 

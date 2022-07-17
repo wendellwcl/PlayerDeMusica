@@ -1,10 +1,14 @@
 #player{
     grid-area: player;
+    display: none;
     background-color: var(--primary-pure);
-    display: flex;
+    padding: 1rem 3rem;
     justify-content: center;
     align-items: center;
-    padding: 1rem 3rem;
+}
+
+#player.show{
+    display: flex;
 }
 
 #player-controls{
