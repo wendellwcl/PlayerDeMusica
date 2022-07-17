@@ -15,17 +15,31 @@ export const DataPlaylistsContextProvider = ( { children } ) => {
         {
             name: 'destaque',
             musics: [
-                        {name: 'Smile form me', src: SmileForMe},
-                        {name: 'Oly', src: Oly},
-                        {name: 'Jump Around', src: JumpAround}
+                        {
+                            name: 'Smile For Me', 
+                            artist: 'Kidcut',
+                            album: 'Music from Uppbeat (free for Creators!)',
+                            link: 'https://uppbeat.io/t/kidcut/smile-for-me',
+                            license: 'License code: 4TJIHW2NY9NOPUOV',
+                            src: SmileForMe
+                        },
+                        {
+                            name: 'Oly', 
+                            artist: 'Walz',
+                            album: 'Music from Uppbeat (free for Creators!)',
+                            link: 'https://uppbeat.io/t/walz/oly',
+                            license: 'License code: HW7DXDL0GNPWYGQV',
+                            src: Oly
+                        },
+                        {
+                            name: 'Jump Around', 
+                            artist: 'All Good Folks',
+                            album: 'Music from Uppbeat (free for Creators!)',
+                            link: 'https://uppbeat.io/t/all-good-folks/jump-around',
+                            license: 'License code: UTSPP91XSBYIWNO3',
+                            src: JumpAround
+                        }
                     ]
-        },
-        {
-            name: 'J.Cole',
-            musics: [
-                {name: 'G.O.M.D'},
-                {name: 'She Knows'}
-            ]
         }
     ];
 
