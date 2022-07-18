@@ -2,8 +2,9 @@
 import './player.css';
 
 //Imports
-import { useState, useRef, useContext } from 'react';
+import { useState, useRef, useContext, useEffect } from 'react';
 
+//Context
 import { MusicPlayerContext } from '../../context/MusicPlayerContext';
 
 
@@ -36,6 +37,13 @@ const Player = () => {
     const liked = false;
 
 
+    //Resgatando informação de volume do localStorage
+    useEffect(() => {
+        const volumeLocalStorage = localStorage.getItem('volume') || 100;
+        setVolume(volumeLocalStorage);
+    });
+
+
     //Atualizar Progresso
     function handleProgress(value){
         //Atualizar barra e input
@@ -66,6 +74,9 @@ const Player = () => {
         setDuration(`${minutes}:${(seconds)}`);
         setDurationPercentage(time / 100);
 
+        //Setando Volume
+        handleVolume(volume);
+
         //Play / Executar música
         music.play();
         setPlay(true);
@@ -92,7 +103,9 @@ const Player = () => {
 
     function handleVolume(value){
         setVolume(value);
+        music.volume = (value / 100);
         volumeBar.style.width = `${value}%`;
+        localStorage.setItem('volume', value);
     };
 
     //Ações quando a música terminar
