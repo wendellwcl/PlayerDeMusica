@@ -18,7 +18,7 @@ const Playlist = () => {
     const { playlistName } = useParams();
 
     const { playlists } = useContext(DataPlaylistsContext);
-    const { currentPlaylist, setCurrentPlaylist, setCurrentMusic } = useContext(MusicPlayerContext);
+    const { currentPlaylist, setCurrentPlaylist, setCurrentMusicData } = useContext(MusicPlayerContext);
 
     
     //Simulando uma requisição ao servidor (porém utilizando context)
@@ -37,8 +37,8 @@ const Playlist = () => {
             <h2 id='playlist-title'>{currentPlaylist && currentPlaylist.name.replace('_', ' ')}</h2>
 
             <ul id='musics-playlist'>
-                {currentPlaylist && currentPlaylist.musics.map(music => (
-                    <ListItemPlaylist className='list-item-playlist' key={music.title} onClick={() => setCurrentMusic(music)}>
+                {currentPlaylist && currentPlaylist.musics.map((music, index) => (
+                    <ListItemPlaylist className='list-item-playlist' key={music.title} onClick={() => setCurrentMusicData(music, index)}>
                         <h3 className='music-title'>{music.title} - {music.artist}</h3>
                         <h4 className='album'>{music.album}</h4>
                         <a href={music.link} target='_blank' rel='noreferrer' className='music-link'>{music.link}</a>

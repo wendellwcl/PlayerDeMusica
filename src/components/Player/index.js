@@ -9,8 +9,8 @@ import { MusicPlayerContext } from '../../context/MusicPlayerContext';
 
 const Player = () => {
 
-    //Música Atual
-    const { currentMusic } = useContext(MusicPlayerContext);
+    //informações da Música Atual
+    const { currentPlaylist, currentMusic, currentIndex, setCurrentMusicData } = useContext(MusicPlayerContext);
 
 
     //Referenciando Audio
@@ -30,12 +30,6 @@ const Player = () => {
     const [ play, setPlay ] = useState(false);
     const liked = false;
 
-
-    //Play e Pause
-    function handlePlayPause(){
-        play ? music.pause() : music.play();
-        setPlay(!play);
-    }
 
     //Atualizar Progresso
     function handleProgress(value){
@@ -72,6 +66,25 @@ const Player = () => {
         setPlay(true);
     };
 
+    //Ações dos botões de controle
+    function handlePlayPause(){
+        play ? music.pause() : music.play();
+        setPlay(!play);
+    }
+
+    function handlePrevNextMusic(action){
+        let newIndex = currentIndex;
+
+        if(action === 'prev'){
+            newIndex--
+        }else if(action === 'next'){
+            newIndex++
+        };
+
+        const nextMusic = currentPlaylist.musics[newIndex];
+        setCurrentMusicData(nextMusic, newIndex);
+    };
+
     //Ações quando a música terminar
     function handleEnd(){
         setPlay(false);
@@ -103,19 +116,38 @@ const Player = () => {
             <div id='player-controls'>
 
                 <div id='music-display'>
-                    <span id='music-title'>{currentMusic ? `${currentMusic.title} - ${currentMusic.artist}` : ''}</span>
+                    <span id='music-title'>{currentMusic && `${currentMusic.title} - ${currentMusic.artist}`}</span>
                 </div>
 
                 <div id='controls-panel'>
-                    <button type='button' id='btn-prev'>
+                    <button 
+                        type='button' 
+                        id='btn-prev' 
+                        className='player-btn' 
+                        disabled={currentIndex <= 0}
+                        onClick={e => handlePrevNextMusic('prev')}
+                    >
                         <i className="bi bi-caret-left-fill"></i>
                     </button>
-                    <button type='button' id='btn-play-pause' onClick={() => handlePlayPause()}>
+
+                    <button 
+                        type='button' 
+                        id='btn-play-pause' 
+                        onClick={() => handlePlayPause()}
+                    >
                         { play ? <i className="bi bi-pause-circle-fill"></i> : <i className="bi bi-play-circle-fill"></i> }
                     </button>
-                    <button type='button' id='btn-next'>
+
+                    <button 
+                        type='button' 
+                        id='btn-next' 
+                        className='player-btn' 
+                        disabled={currentPlaylist && (currentIndex >= (currentPlaylist.musics.length - 1))}
+                        onClick={e => handlePrevNextMusic('next')}
+                    >
                         <i className="bi bi-caret-right-fill"></i>
                     </button>
+
                     <button id='btn-like'>
                         { liked ? <i className="bi bi-heart-fill"></i> : <i className="bi bi-heart"></i> }
                     </button>

@@ -35,6 +35,14 @@
     margin-bottom: .5rem;
 }
 
+.player-btn:disabled{
+    opacity: .3;
+}
+
+.player-btn:hover:disabled{
+    color: var(--high-pure) !important;
+}
+
 #btn-prev, #btn-next, #btn-play-pause, #btn-like{
     display: inline-block;
     width: 3rem;
