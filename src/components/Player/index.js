@@ -21,6 +21,10 @@ const Player = () => {
     const progressBarEl = useRef();
     const progressBar = progressBarEl.current;
 
+    //Referenciando Volume
+    const volumeBarEl = useRef();
+    const volumeBar = volumeBarEl.current;
+
 
     //States
     const [ duration, setDuration ] = useState();
@@ -28,6 +32,7 @@ const Player = () => {
     const [ currentTime, setCurrentTime ] = useState();
     const [ inputValue, setInputValue ] = useState(0);
     const [ play, setPlay ] = useState(false);
+    const [ volume, setVolume ] = useState(100);
     const liked = false;
 
 
@@ -83,6 +88,11 @@ const Player = () => {
 
         const nextMusic = currentPlaylist.musics[newIndex];
         setCurrentMusicData(nextMusic, newIndex);
+    };
+
+    function handleVolume(value){
+        setVolume(value);
+        volumeBar.style.width = `${value}%`;
     };
 
     //Ações quando a música terminar
@@ -165,6 +175,23 @@ const Player = () => {
                     <div id='progress-bar' ref={progressBarEl}></div>
                     <span id='current-time'>{currentTime ? currentTime : '0:00'}</span>
                     <span id='duration'>{duration ? duration : '0:00'}</span>
+                </div>
+
+                <div id="volume-container">
+                    <label htmlFor="volume-input">
+                        <i className="bi bi-volume-up-fill"></i>
+                    </label>
+                    <div id='volume-bar'>
+                        <input 
+                            type="range" 
+                            id="volume-input"
+                            min='0'
+                            max='100'
+                            value={volume}
+                            onChange={e => handleVolume(e.target.value)}
+                        />
+                        <div id="volume-bar-percentage" ref={volumeBarEl}></div>
+                    </div>
                 </div>
 
             </div>
