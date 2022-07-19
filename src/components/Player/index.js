@@ -11,7 +11,7 @@ import { MusicPlayerContext } from '../../context/MusicPlayerContext';
 const Player = () => {
 
     //informações da Música Atual
-    const { currentPlaylist, currentMusic, currentIndex, setCurrentMusicData } = useContext(MusicPlayerContext);
+    const { currentPlaylist, currentMusic, currentMusicIndex, setCurrentMusicData } = useContext(MusicPlayerContext);
 
 
     //Referenciando Audio
@@ -31,7 +31,7 @@ const Player = () => {
     const [ duration, setDuration ] = useState();
     const [ durationPercentage, setDurationPercentage ] = useState();
     const [ currentTime, setCurrentTime ] = useState();
-    const [ inputValue, setInputValue ] = useState(0);
+    const [ inputProgressValue, setInputProgressValue ] = useState(0);
     const [ play, setPlay ] = useState(false);
     const [ volume, setVolume ] = useState(100);
     const liked = false;
@@ -41,7 +41,7 @@ const Player = () => {
     useEffect(() => {
         const volumeLocalStorage = localStorage.getItem('volume') || 100;
         setVolume(volumeLocalStorage);
-    });
+    }, [setVolume]);
 
 
     //Atualizar Progresso
@@ -49,7 +49,7 @@ const Player = () => {
         //Atualizar barra e input
         let progress = Math.floor(value / durationPercentage);
         progressBar.style.width = `${progress}%`;
-        setInputValue(progress);
+        setInputProgressValue(progress);
         
         //Atualizar tempo atual
         let { minutes, seconds } = timeToMinutes(value);
@@ -89,7 +89,7 @@ const Player = () => {
     }
 
     function handlePrevNextMusic(action){
-        let newIndex = currentIndex;
+        let newIndex = currentMusicIndex;
 
         if(action === 'prev'){
             newIndex--
@@ -111,9 +111,12 @@ const Player = () => {
     //Ações quando a música terminar
     function handleEnd(){
         setPlay(false);
-        setInputValue(0);
+        setInputProgressValue(0);
         setCurrentTime(null);
         progressBar.style.width = '0%';
+        if(currentMusicIndex < (currentPlaylist.musics.length - 1)){
+            handlePrevNextMusic('next');
+        };
     };
 
     function timeToMinutes(time){
@@ -147,7 +150,7 @@ const Player = () => {
                         type='button' 
                         id='btn-prev' 
                         className='player-btn' 
-                        disabled={currentIndex <= 0}
+                        disabled={currentMusicIndex <= 0}
                         onClick={e => handlePrevNextMusic('prev')}
                     >
                         <i className="bi bi-caret-left-fill"></i>
@@ -165,7 +168,7 @@ const Player = () => {
                         type='button' 
                         id='btn-next' 
                         className='player-btn' 
-                        disabled={currentPlaylist && (currentIndex >= (currentPlaylist.musics.length - 1))}
+                        disabled={currentPlaylist && (currentMusicIndex >= (currentPlaylist.musics.length - 1))}
                         onClick={e => handlePrevNextMusic('next')}
                     >
                         <i className="bi bi-caret-right-fill"></i>
@@ -181,7 +184,7 @@ const Player = () => {
                         type="range" 
                         min='0' 
                         max='100' 
-                        value={inputValue} 
+                        value={inputProgressValue} 
                         id='input-progress'  
                         onChange={e => setMusicTime(e.target.value)} 
                     />
