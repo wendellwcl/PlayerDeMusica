@@ -58,7 +58,7 @@ const Player = () => {
     
     //Setar/atualizar tempo da música ao clicar no input de progresso
     function setMusicTime(value){
-        if(value == 100){
+        if(value === '100'){
             value = 99.9;
         };
         music.currentTime = value * durationPercentage;

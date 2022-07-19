@@ -2,7 +2,7 @@
 import './playlist.css';
 
 //Imports
-import { useEffect, useContext } from "react";
+import { useEffect, useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 
 //Context
@@ -11,7 +11,7 @@ import { MusicPlayerContext } from "../../context/MusicPlayerContext";
 
 //Components
 import { ListItemPlaylist } from "../../components/styled-components";
-import { useState } from 'react';
+import PlayingAnimation from '../../components/PlayingAnimation';
 
 
 const Playlist = () => {
@@ -21,7 +21,7 @@ const Playlist = () => {
     const [playlist, setPlaylist] = useState();
 
     const { playlists } = useContext(DataPlaylistsContext);
-    const { currentPlaylist, setCurrentMusicData } = useContext(MusicPlayerContext);
+    const { currentPlaylist, currentMusic, setCurrentMusicData } = useContext(MusicPlayerContext);
 
     
     //Simulando uma requisição ao servidor (porém utilizando context)
@@ -47,11 +47,18 @@ const Playlist = () => {
 
             <ul id='musics-playlist'>
                 {playlist && playlist.musics.map((music, index) => (
-                    <ListItemPlaylist className='list-item-playlist' key={music.title} onClick={() => setCurrentMusicData(playlist, music, index)}>
-                        <h3 className='music-title'>{music.title} - {music.artist}</h3>
-                        <h4 className='album'>{music.album}</h4>
-                        <a href={music.link} target='_blank' rel='noreferrer' className='music-link'>{music.link}</a>
-                        <span className='license'>{music.license}</span>
+                    <ListItemPlaylist 
+                        className='list-item-playlist' 
+                        key={music.title} 
+                        onClick={() => setCurrentMusicData(playlist, music, index)}
+                    >
+                            <h3 className={`music-title ${currentMusic && ((music.title === currentMusic.title) && 'current-music')}`}>
+                                <span>{music.title} - {music.artist}</span>
+                                {currentMusic && ((music.title === currentMusic.title) && <PlayingAnimation/>)}
+                            </h3>
+                            <h4 className='album'>{music.album}</h4>
+                            <a href={music.link} target='_blank' rel='noreferrer' className='music-link'>{music.link}</a>
+                            <span className='license'>{music.license}</span>
                     </ListItemPlaylist>
                 ))}
             </ul>

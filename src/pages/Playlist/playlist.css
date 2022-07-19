@@ -10,6 +10,10 @@
     margin-bottom: 1rem;
 }
 
+.current-music{
+    color: var(--primary-pure);
+}
+
 /* ------------------------- DarkMode ------------------------- */
 .dark #playlist-title{
     color: var(--high-pure);

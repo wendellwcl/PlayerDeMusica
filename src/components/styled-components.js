@@ -61,6 +61,7 @@ export const ListItemPlaylist = styled.li`
     .music-title{
         font-size: .8rem;
         font-weight: bold;
+        display: flex;
     }
 
     .album{
@@ -77,5 +78,9 @@ export const ListItemPlaylist = styled.li`
     .music-link:hover{
         font-weight: bold;
         color: var(--primary-pure);
+    }
+
+    .playing-animation{
+        border: 1px solid red;
     }
 `
