@@ -11,23 +11,26 @@ import { MusicPlayerContext } from "../../context/MusicPlayerContext";
 
 //Components
 import { ListItemPlaylist } from "../../components/styled-components";
+import { useState } from 'react';
 
 
 const Playlist = () => {
     
     let { playlistName } = useParams();
 
+    const [playlist, setPlaylist] = useState();
+
     const { playlists } = useContext(DataPlaylistsContext);
-    const { currentPlaylist, setCurrentPlaylist, setCurrentMusicData } = useContext(MusicPlayerContext);
+    const { currentPlaylist, setCurrentMusicData } = useContext(MusicPlayerContext);
 
     
     //Simulando uma requisição ao servidor (porém utilizando context)
     useEffect(() => {
-        async function loadPlaylist(){
-            const response = await playlists.find(playlist => playlist.name === playlistName);
-            await setCurrentPlaylist(response);
+        function loadPlaylist(){
+            const response = playlists.find(playlist => playlist.name === playlistName);
+            setPlaylist(response);
         };
-
+        
         if(playlistName){
             loadPlaylist();
         } else {
@@ -40,11 +43,11 @@ const Playlist = () => {
     return(
         <div>
             
-            <h2 id='playlist-title'>{currentPlaylist && currentPlaylist.name.replace('_', ' ')}</h2>
+            <h2 id='playlist-title'>{playlist && playlist.name.replace('_', ' ')}</h2>
 
             <ul id='musics-playlist'>
-                {currentPlaylist && currentPlaylist.musics.map((music, index) => (
-                    <ListItemPlaylist className='list-item-playlist' key={music.title} onClick={() => setCurrentMusicData(music, index)}>
+                {playlist && playlist.musics.map((music, index) => (
+                    <ListItemPlaylist className='list-item-playlist' key={music.title} onClick={() => setCurrentMusicData(playlist, music, index)}>
                         <h3 className='music-title'>{music.title} - {music.artist}</h3>
                         <h4 className='album'>{music.album}</h4>
                         <a href={music.link} target='_blank' rel='noreferrer' className='music-link'>{music.link}</a>

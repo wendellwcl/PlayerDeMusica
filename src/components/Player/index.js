@@ -98,7 +98,7 @@ const Player = () => {
         };
 
         const nextMusic = currentPlaylist.musics[newIndex];
-        setCurrentMusicData(nextMusic, newIndex);
+        setCurrentMusicData(currentPlaylist, nextMusic, newIndex);
     };
 
     function handleVolume(value){

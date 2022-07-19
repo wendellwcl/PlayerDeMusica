@@ -10,7 +10,8 @@ export const MusicPlayerContextProvider = ( { children } ) => {
     const [ currentMusic, setCurrentMusic ] = useState();
     const [ currentMusicIndex, setCurrentMusicIndex ] = useState();
 
-    function setCurrentMusicData(music, index){
+    function setCurrentMusicData(playlist, music, index){
+        setCurrentPlaylist(playlist);
         setCurrentMusic(music);
         setCurrentMusicIndex(index);
     };
