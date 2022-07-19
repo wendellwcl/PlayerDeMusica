@@ -1,0 +1,9 @@
+#nothing-playing-msg{
+    text-align: center;
+    color: var(--low-pure);
+}
+
+/* ------------------------- DarkMode ------------------------- */
+.dark #nothing-playing-msg{
+    color: var(--high-pure);
+}

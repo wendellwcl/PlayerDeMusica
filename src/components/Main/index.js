@@ -6,8 +6,9 @@ import { Routes, Route } from 'react-router-dom';
 
 //Pages
 import Home from '../../pages/Home';
-import Playlist from '../../pages/Playlist';
+import Playing from '../../pages/Playing';
 import Liked from '../../pages/Liked';
+import Playlist from '../../pages/Playlist';
 
 
 const Main = () => {
@@ -17,8 +18,11 @@ const Main = () => {
 
             <Routes>
                 <Route path='/' element={<Home/>}/>
-                <Route path='playlist/:playlistName' element={<Playlist/>}/>
+                <Route path='/playing' element={<Playing/>}>
+                    <Route path='' element={<Playlist/>}/>
+                </Route>
                 <Route path='liked' element={<Liked/>}/>
+                <Route path='playlist/:playlistName' element={<Playlist/>}/>
             </Routes>
 
         </main>

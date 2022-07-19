@@ -15,7 +15,7 @@ import { ListItemPlaylist } from "../../components/styled-components";
 
 const Playlist = () => {
     
-    const { playlistName } = useParams();
+    let { playlistName } = useParams();
 
     const { playlists } = useContext(DataPlaylistsContext);
     const { currentPlaylist, setCurrentPlaylist, setCurrentMusicData } = useContext(MusicPlayerContext);
@@ -27,7 +27,13 @@ const Playlist = () => {
             const response = await playlists.find(playlist => playlist.name === playlistName);
             await setCurrentPlaylist(response);
         };
-        loadPlaylist();
+
+        if(playlistName){
+            loadPlaylist();
+        } else {
+            playlistName = currentPlaylist.name;
+            loadPlaylist();
+        };
     }, []);
     
 
