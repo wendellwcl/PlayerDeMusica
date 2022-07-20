@@ -38,14 +38,21 @@ const Player = () => {
     const [ inputProgressValue, setInputProgressValue ] = useState(0);
     const [ play, setPlay ] = useState(false);
     const [ volume, setVolume ] = useState(100);
-    const liked = false;
+    const [ liked, setLiked ] = useState();
 
 
-    //Resgatando informação de volume do localStorage
     useEffect(() => {
+        //Resgatando informação de volume do localStorage
         const volumeLocalStorage = localStorage.getItem('volume') || 100;
         setVolume(volumeLocalStorage);
-    }, [setVolume]);
+
+        //Resgatando informação se a música está entre as curtidas
+        if(currentMusic && likedMusicsPlaylist){
+            const isLiked = likedMusicsPlaylist.find(music => music.title === currentMusic.title);
+            setLiked(isLiked);
+        }
+
+    }, [setVolume, likedMusicsPlaylist, currentMusic]);
 
 
     //Atualizar Progresso
@@ -105,7 +112,7 @@ const Player = () => {
         };
 
         const nextMusic = currentPlaylist.musics[newIndex];
-        setCurrentMusicData(currentPlaylist, nextMusic, newIndex);
+        setCurrentMusicData({playlist: currentPlaylist, music: nextMusic, index: newIndex});
     };
 
     function handleVolume(value){
@@ -113,6 +120,11 @@ const Player = () => {
         music.volume = (value / 100);
         volumeBar.style.width = `${value}%`;
         localStorage.setItem('volume', value);
+    };
+
+    function handleLike(){
+        handleLikeMusic(currentMusic);
+        setLiked(!liked);
     };
 
     //Ações quando a música terminar
@@ -181,7 +193,7 @@ const Player = () => {
                         <i className="bi bi-caret-right-fill"></i>
                     </button>
 
-                    <button id='btn-like' onClick={() => handleLikeMusic(currentMusic)}>
+                    <button id='btn-like' onClick={() => handleLike()}>
                         { liked ? <i className="bi bi-heart-fill"></i> : <i className="bi bi-heart"></i> }
                     </button>
                 </div>

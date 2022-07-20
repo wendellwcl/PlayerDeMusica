@@ -56,11 +56,11 @@ export const DataPlaylistsContextProvider = ( { children } ) => {
         let updatedPlaylist;
 
         if(likedMusicsPlaylist){
-            likedMusicsPlaylist.forEach(music => {
+            likedMusicsPlaylist.forEach((music, i) => {
                 if(music.title === newMusic.title){
-                    console.log('retirar')
+                    likedMusicsPlaylist.splice(i, 1);
+                    updatedPlaylist = likedMusicsPlaylist;
                     duplicate = true;
-                    return;
                 };
             });
 
@@ -71,12 +71,10 @@ export const DataPlaylistsContextProvider = ( { children } ) => {
             updatedPlaylist = [newMusic];
         };
 
-        if(updatedPlaylist){
-            setLikedMusicsPlaylist(updatedPlaylist);
+        setLikedMusicsPlaylist(updatedPlaylist);
 
-            const updatedPlaylistJSON = JSON.stringify(updatedPlaylist);
-            localStorage.setItem('liked', updatedPlaylistJSON);
-        };
+        const updatedPlaylistJSON = JSON.stringify(updatedPlaylist);
+        localStorage.setItem('liked', updatedPlaylistJSON);
     };
 
 

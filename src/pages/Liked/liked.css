@@ -1,0 +1,31 @@
+#playlist-title{
+    color: var(--low-pure);
+    text-align: center;
+    font-weight: bold;
+    text-transform: capitalize;
+    margin-bottom: 1rem;
+}
+
+.info-msg{
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    color: var(--low-pure);
+}
+
+/* ------------------------- DarkMode ------------------------- */
+.dark #playlist-title{
+    color: var(--high-pure);
+}
+
+.dark .info-msg{
+    color: var(--high-pure);
+}
+
+.dark .list-item-playlist{
+    color: var(--high-pure);
+}
+
+.dark .list-item-playlist:hover{
+    background-color: var(--low-dark);
+}

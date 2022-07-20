@@ -1,3 +1,6 @@
+//Css
+import './liked.css';
+
 //Imports
 import { useContext } from "react";
 
@@ -14,6 +17,19 @@ const Liked = () => {
 
     const { likedMusicsPlaylist } = useContext(DataPlaylistsContext);
     const { currentMusic, setCurrentMusicData } = useContext(MusicPlayerContext);
+
+
+    if(!likedMusicsPlaylist || likedMusicsPlaylist.length === 0){
+        return(
+            <div>
+
+                <h2 id='playlist-title'>músicas curtidas</h2>
+
+                <span className="info-msg">Você não possui músicas favoritadas.</span>
+
+            </div>
+        )
+    };
 
     return(
         <div>

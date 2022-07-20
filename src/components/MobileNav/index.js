@@ -37,7 +37,7 @@ const MobileNav = () => {
             <button>
                 <NavLink to='/playing'>
                     <i className='bi bi-music-note-list'></i>
-                    Tocando
+                    Playlist
                 </NavLink>
             </button>
 
