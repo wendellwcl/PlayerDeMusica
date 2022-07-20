@@ -50,7 +50,7 @@ const Playlist = () => {
                     <ListItemPlaylist 
                         className='list-item-playlist' 
                         key={music.title} 
-                        onClick={() => setCurrentMusicData(playlist, music, index)}
+                        onClick={() => setCurrentMusicData({playlist, music, index})}
                     >
                             <h3 className={`music-title ${currentMusic && ((music.title === currentMusic.title) && 'current-music')}`}>
                                 <span>{music.title} - {music.artist}</span>

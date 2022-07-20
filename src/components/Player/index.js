@@ -6,12 +6,16 @@ import { useState, useRef, useContext, useEffect } from 'react';
 
 //Context
 import { MusicPlayerContext } from '../../context/MusicPlayerContext';
+import { DataPlaylistsContext } from '../../context/DataPlaylistsContext';
 
 
 const Player = () => {
 
     //informações da Música Atual
     const { currentPlaylist, currentMusic, currentMusicIndex, setCurrentMusicData } = useContext(MusicPlayerContext);
+
+    //Informações de músicas favoritas
+    const { likedMusicsPlaylist, handleLikeMusic } = useContext(DataPlaylistsContext);
 
 
     //Referenciando Audio
@@ -177,7 +181,7 @@ const Player = () => {
                         <i className="bi bi-caret-right-fill"></i>
                     </button>
 
-                    <button id='btn-like'>
+                    <button id='btn-like' onClick={() => handleLikeMusic(currentMusic)}>
                         { liked ? <i className="bi bi-heart-fill"></i> : <i className="bi bi-heart"></i> }
                     </button>
                 </div>

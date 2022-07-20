@@ -1,5 +1,5 @@
 //Imports
-import { createContext } from "react";
+import { createContext, useEffect, useState  } from "react";
 
 //Assets
 import SmileForMe from '../assets/musics/smile-for-me-kidcut-main-version-01-26-3177.mp3';
@@ -43,8 +43,45 @@ export const DataPlaylistsContextProvider = ( { children } ) => {
         }
     ];
 
+    const [ likedMusicsPlaylist, setLikedMusicsPlaylist ] = useState();
+
+    useEffect(() => {
+        const responseLocalStorage = localStorage.getItem('liked');
+        const response = JSON.parse(responseLocalStorage);
+        setLikedMusicsPlaylist(response);
+    }, []);
+
+    function handleLikeMusic(newMusic){
+        let duplicate;
+        let updatedPlaylist;
+
+        if(likedMusicsPlaylist){
+            likedMusicsPlaylist.forEach(music => {
+                if(music.title === newMusic.title){
+                    console.log('retirar')
+                    duplicate = true;
+                    return;
+                };
+            });
+
+            if(!duplicate){
+                updatedPlaylist = [...likedMusicsPlaylist, newMusic];
+            };
+        } else {
+            updatedPlaylist = [newMusic];
+        };
+
+        if(updatedPlaylist){
+            setLikedMusicsPlaylist(updatedPlaylist);
+
+            const updatedPlaylistJSON = JSON.stringify(updatedPlaylist);
+            localStorage.setItem('liked', updatedPlaylistJSON);
+        };
+    };
+
+
     return(
-        <DataPlaylistsContext.Provider value={ { playlists } }>
+        <DataPlaylistsContext.Provider value={ { playlists, likedMusicsPlaylist, handleLikeMusic } }>
             { children }
         </DataPlaylistsContext.Provider>
     );
