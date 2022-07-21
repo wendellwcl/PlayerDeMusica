@@ -14,7 +14,7 @@ import { DarkmodeContext } from '../../context/DarkmodeContext';
 
 const MobileNav = () => {
 
-    const { darkmode, handleDarkmode } = useContext(DarkmodeContext);
+    const { darkmode, handleToggleDarkmode } = useContext(DarkmodeContext);
 
     return(
         <div className='mobileNav'>
@@ -67,7 +67,7 @@ const MobileNav = () => {
                                                 className='switch-checkbox' 
                                                 id='switch-checkbox-offcanvas'
                                                 checked={darkmode ? darkmode : false} 
-                                                onChange={() => handleDarkmode()}/>
+                                                onChange={() => handleToggleDarkmode()}/>
                                         <span className='switch-darkmode'></span>
                                     </SwitchCheckbox>
                                 </li>

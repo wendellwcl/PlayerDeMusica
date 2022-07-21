@@ -1,18 +1,24 @@
+//Imports
 import { createContext, useState } from 'react';
+
 
 export const DarkmodeContext = createContext();
 
 export const DarkmodeContextProvider = ( {children} ) => {
 
-    const [darkmode, setDarkmode] = useState(null);
+    //Darkmode State
+    const [ darkmode, setDarkmode ] = useState();
+    
 
-    function handleDarkmode(){
+    //Alterar state do Darkmode
+    function handleToggleDarkmode(){
         setDarkmode(!darkmode);
         localStorage.setItem('darkmode', JSON.stringify(!darkmode));
     };
 
+
     return(
-        <DarkmodeContext.Provider value={ { darkmode, setDarkmode, handleDarkmode } }>
+        <DarkmodeContext.Provider value={ { darkmode, setDarkmode, handleToggleDarkmode } }>
             {children}
         </DarkmodeContext.Provider>
     );

@@ -13,6 +13,7 @@
     color: var(--low-pure);
 }
 
+
 /* ------------------------- DarkMode ------------------------- */
 .dark #playlist-title{
     color: var(--high-pure);

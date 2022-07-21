@@ -18,17 +18,23 @@ import { DarkmodeContext } from './context/DarkmodeContext';
 
 function App() {
 
+  //Acessando informações do Darkmode
   const { darkmode, setDarkmode } = useContext(DarkmodeContext);
 
-  //checar darkmode localStorage
+  
   useEffect(() => {
-    const darkmodeStorage = localStorage.getItem('darkmode');
-    setDarkmode(JSON.parse(darkmodeStorage) || false);
+
+    //Recuperar darkmode do localStorage e setar resposta
+    const darkmodeLocalStorage = localStorage.getItem('darkmode');
+    const darkmodeResponse = JSON.parse(darkmodeLocalStorage) || false;
+    setDarkmode(darkmodeResponse || false);
+
   }, [setDarkmode]);
+  
 
   return (
     <HashRouter>
-      <div className={`app ${darkmode ? 'dark' : ''}`}>
+      <div className={`app ${darkmode && 'dark'}`}>
         <Header/>
         <Aside/>
         <Main/>

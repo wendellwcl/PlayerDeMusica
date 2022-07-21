@@ -1,9 +1,10 @@
-#nothing-playing-msg{
+.feedback-msg{
     text-align: center;
     color: var(--low-pure);
 }
 
+
 /* ------------------------- DarkMode ------------------------- */
-.dark #nothing-playing-msg{
+.dark .feedback-msg{
     color: var(--high-pure);
 }

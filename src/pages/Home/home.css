@@ -26,9 +26,6 @@
     margin-bottom: 2rem;
 }
 
-
-/* Seção Highlight */
-
 .highlight-container{
     margin-bottom: 3rem;
 }
@@ -62,7 +59,6 @@
     inset: 0;
 }
 
-/* Modal */
 .home-container .btn-close {
     background: none;
     font-size: 1.5rem;

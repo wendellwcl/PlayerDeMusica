@@ -12,15 +12,19 @@ import { MusicPlayerContext } from "../../context/MusicPlayerContext";
 const Playing = () => {
 
     const { currentPlaylist } = useContext(MusicPlayerContext);
+
     
+    //Caso não haja playlist sendo executada, exibir esta mensagem
     if(!currentPlaylist){
         return(
-            <div id='nothing-playing-msg'>
+            <div className='feedback-msg'>
                 <span>Nenhuma playlist tocando no momento.</span>
             </div>
         );
     };
+    
 
+    //Caso haja uma playlist sendo executada, o componente Playlist será utilizado para realizar a exibição
     return(
         <>
             <Outlet/>

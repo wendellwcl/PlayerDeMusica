@@ -35,6 +35,7 @@ const Home = () => {
         {sectionName: 'playlists', arr: playlistsTop}
     ];
 
+
     return(
         <section className='home-container'>
 
@@ -51,13 +52,13 @@ const Home = () => {
             {/* Seções */}
             {sections.map(section => (
                 <section key={section.sectionName} className='section-container'>
-                <h2 className='section-title'>Top {section.sectionName}</h2>
-                <div className="card-container">
-                    {section.arr.map(item => (
-                        <CardHome key={item.name} name={item.name} img={item.img} />
-                    ))}
-                </div>
-            </section>
+                    <h2 className='section-title'>Top {section.sectionName}</h2>
+                    <div className="card-container">
+                        {section.arr.map(item => (
+                            <CardHome key={item.name} name={item.name} img={item.img} />
+                        ))}
+                    </div>
+                </section>
             ))}
 
             {/* Modal */}

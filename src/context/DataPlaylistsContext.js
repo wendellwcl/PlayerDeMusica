@@ -9,7 +9,7 @@ import JumpAround from '../assets/musics/jump-around-all-good-folks-main-version
 
 export const DataPlaylistsContext = createContext();
 
-export const DataPlaylistsContextProvider = ( { children } ) => {
+export const DataPlaylistsContextProvider = ( {children} ) => {
 
     const playlists = [
         {
@@ -45,9 +45,14 @@ export const DataPlaylistsContextProvider = ( { children } ) => {
 
     const [ likedMusicsPlaylist, setLikedMusicsPlaylist ] = useState();
 
+
     useEffect(() => {
+
+        //Recuperar playlist de músicas curtidas do LocalStorage
         const responseLocalStorage = localStorage.getItem('liked');
         const response = JSON.parse(responseLocalStorage);
+
+        //Construir a playlist de músicas após a resposta obtida
         let playlist = {
             name: 'músicas_curtidas',
             musics: []
@@ -55,32 +60,48 @@ export const DataPlaylistsContextProvider = ( { children } ) => {
         if(response){
             playlist.musics = [...response.musics];
         }
+
+        //Setar o state referente a playlist de músicas curtidas
         setLikedMusicsPlaylist(playlist);
+
     }, []);
 
+
+    //Colocar ou retirar música da playlist de curtidas
     function handleLikeMusic(newMusic){
+
+        //Variável para receber as alterações que serão feitas
         let updatedMusicsArray;
 
+        //Checar se a playlist já existe
         if(likedMusicsPlaylist){
+            //Checar se a música está entre as curtidas
             const duplicate = likedMusicsPlaylist.musics.findIndex(music => music.title === newMusic.title);
-
+            
+            //Após checar duplicata...
             if(duplicate === -1){
+                //... caso não esteja na playlist, a nova música será adicionada
                 updatedMusicsArray = [...likedMusicsPlaylist.musics, newMusic];
             } else {
+                //... caso já esteja na playlist, a ação será retirá-la
                 likedMusicsPlaylist.musics.splice(duplicate, 1);
                 updatedMusicsArray = likedMusicsPlaylist.musics;
             };
         } else {
+            //Caso a playlist ainda não exista, a nova música será adicionada
             updatedMusicsArray = [newMusic];
         };
 
+        //Montar uma playlist atualizada após todas as ações serem concluídas
         let updatedPlaylist = {
             name: likedMusicsPlaylist.name,
             musics: [...updatedMusicsArray]
         };
 
+        //Setar state playlist de músicas curtidas com a playlist atualizada
         setLikedMusicsPlaylist(updatedPlaylist);
 
+        //Armazenar a playlist atualizada no LocalStorage
         const updatedPlaylistJSON = JSON.stringify(updatedPlaylist);
         localStorage.setItem('liked', updatedPlaylistJSON);
     };
