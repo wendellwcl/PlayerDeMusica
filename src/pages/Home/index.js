@@ -71,8 +71,8 @@ const Home = () => {
                             </button>
                         </div>
                         <div className="modal-body">
-                            A seção que você clicou é ilustrativa.
-                            Por favor <mark>clique na seção "Destaque - Ouça agora"</mark> para acessar a playlist disponível.
+                            A seção que você clicou é apenas ilustrativa.
+                            Por favor <mark>clique em "Destaque - Ouça agora"</mark> no topo da página para acessar a playlist disponível.
                         </div>
                     </div>
                 </div>
