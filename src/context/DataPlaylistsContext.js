@@ -48,27 +48,35 @@ export const DataPlaylistsContextProvider = ( { children } ) => {
     useEffect(() => {
         const responseLocalStorage = localStorage.getItem('liked');
         const response = JSON.parse(responseLocalStorage);
-        setLikedMusicsPlaylist(response);
+        let playlist = {
+            name: 'músicas_curtidas',
+            musics: []
+        };
+        if(response){
+            playlist.musics = [...response.musics];
+        }
+        setLikedMusicsPlaylist(playlist);
     }, []);
 
     function handleLikeMusic(newMusic){
-        let duplicate;
-        let updatedPlaylist;
+        let updatedMusicsArray;
 
         if(likedMusicsPlaylist){
-            likedMusicsPlaylist.forEach((music, i) => {
-                if(music.title === newMusic.title){
-                    likedMusicsPlaylist.splice(i, 1);
-                    updatedPlaylist = likedMusicsPlaylist;
-                    duplicate = true;
-                };
-            });
+            const duplicate = likedMusicsPlaylist.musics.findIndex(music => music.title === newMusic.title);
 
-            if(!duplicate){
-                updatedPlaylist = [...likedMusicsPlaylist, newMusic];
+            if(duplicate === -1){
+                updatedMusicsArray = [...likedMusicsPlaylist.musics, newMusic];
+            } else {
+                likedMusicsPlaylist.musics.splice(duplicate, 1);
+                updatedMusicsArray = likedMusicsPlaylist.musics;
             };
         } else {
-            updatedPlaylist = [newMusic];
+            updatedMusicsArray = [newMusic];
+        };
+
+        let updatedPlaylist = {
+            name: likedMusicsPlaylist.name,
+            musics: [...updatedMusicsArray]
         };
 
         setLikedMusicsPlaylist(updatedPlaylist);

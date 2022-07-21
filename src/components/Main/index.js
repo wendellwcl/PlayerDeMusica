@@ -21,7 +21,7 @@ const Main = () => {
                 <Route path='/playing' element={<Playing/>}>
                     <Route path='' element={<Playlist/>}/>
                 </Route>
-                <Route path='liked' element={<Liked/>}/>
+                <Route path='/liked' element={<Liked/>}/>
                 <Route path='playlist/:playlistName' element={<Playlist/>}/>
             </Routes>
 

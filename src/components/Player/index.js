@@ -48,7 +48,7 @@ const Player = () => {
 
         //Resgatando informação se a música está entre as curtidas
         if(currentMusic && likedMusicsPlaylist){
-            const isLiked = likedMusicsPlaylist.find(music => music.title === currentMusic.title);
+            const isLiked = likedMusicsPlaylist.musics.find(music => music.title === currentMusic.title);
             setLiked(isLiked);
         }
 

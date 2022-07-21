@@ -34,8 +34,7 @@ const Playlist = () => {
         if(playlistName){
             loadPlaylist();
         } else {
-            playlistName = currentPlaylist.name;
-            loadPlaylist();
+            setPlaylist(currentPlaylist);
         };
     }, []);
     

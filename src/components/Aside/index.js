@@ -20,7 +20,7 @@ const Aside = () => {
                 <li className='nav-item'>
                     <NavLink className='nav-link' to='/playing'>
                         <i className='bi bi-music-note-list'></i>
-                        Playlist
+                        Tocando agora
                     </NavLink>
                 </li>
                 <li className='nav-item'>

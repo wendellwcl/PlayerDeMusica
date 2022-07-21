@@ -19,16 +19,13 @@ const Liked = () => {
     const { currentMusic, setCurrentMusicData } = useContext(MusicPlayerContext);
 
 
-    if(!likedMusicsPlaylist || likedMusicsPlaylist.length === 0){
+    if(!likedMusicsPlaylist || likedMusicsPlaylist.musics.length === 0){
         return(
             <div>
-
                 <h2 id='playlist-title'>músicas curtidas</h2>
-
                 <span className="info-msg">Você não possui músicas favoritadas.</span>
-
             </div>
-        )
+        );
     };
 
     return(
@@ -37,11 +34,11 @@ const Liked = () => {
             <h2 id='playlist-title'>músicas curtidas</h2>
 
             <ul id='musics-playlist'>
-                {likedMusicsPlaylist && likedMusicsPlaylist.map((music, index) => (
+                {likedMusicsPlaylist && likedMusicsPlaylist.musics.map((music, index) => (
                     <ListItemPlaylist 
                         className='list-item-playlist' 
                         key={music.title} 
-                        onClick={() => setCurrentMusicData({music, index})}
+                        onClick={() => setCurrentMusicData({playlist: likedMusicsPlaylist, music, index})}
                     >
                             <h3 className={`music-title ${currentMusic && ((music.title === currentMusic.title) && 'current-music')}`}>
                                 <span>{music.title} - {music.artist}</span>
