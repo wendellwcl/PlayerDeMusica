@@ -2,8 +2,8 @@
 import './mobileNav.css';
 
 //Imports
-import { NavLink } from 'react-router-dom';
 import { useContext } from 'react';
+import { NavLink } from 'react-router-dom';
 
 //Components
 import { SwitchCheckbox } from '../styled-components';
@@ -16,28 +16,26 @@ const MobileNav = () => {
 
     const { darkmode, handleToggleDarkmode } = useContext(DarkmodeContext);
 
+
     return(
         <div className='mobileNav'>
 
-            {/* ------------------- Botões ------------------- */}
+            {/* ------------------- Navbar links ------------------- */}
             <button>
                 <NavLink to='/'>
-                    <i className='bi bi-house-fill'></i>
-                    Início
+                    <i className='bi bi-house-fill'></i> Início
                 </NavLink>
             </button>
             
             <button>
                 <NavLink to='/liked'>
-                    <i className='bi bi-heart-fill'></i>
-                    Curtidas
+                    <i className='bi bi-heart-fill'></i> Curtidas
                 </NavLink>
             </button>
 
             <button>
                 <NavLink to='/playing'>
-                    <i className='bi bi-music-note-list'></i>
-                    Tocando
+                    <i className='bi bi-music-note-list'></i> Tocando
                 </NavLink>
             </button>
 

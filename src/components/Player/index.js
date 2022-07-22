@@ -11,7 +11,7 @@ import { DataPlaylistsContext } from '../../context/DataPlaylistsContext';
 
 const Player = () => {
 
-    //informações da Música Atual
+    //Informações da música atual
     const { currentPlaylist, currentMusic, currentMusicIndex, setCurrentMusicData } = useContext(MusicPlayerContext);
 
     //Informações de músicas favoritas
@@ -26,14 +26,14 @@ const Player = () => {
     const progressBarEl = useRef();
     const progressBar = progressBarEl.current;
 
-    //Referenciando Volume
+    //Referenciando Controle de Volume
     const volumeBarEl = useRef();
     const volumeBar = volumeBarEl.current;
 
 
     //States
     const [ duration, setDuration ] = useState();
-    const [ durationPercentage, setDurationPercentage ] = useState();
+    const [ durationPercentage, setDurationPercentage ] = useState(); //Esta variável será utilizada em cálculos que obtem o tempo atual de execução da música (seu valor corresponde a 1% do tempo da música)
     const [ currentTime, setCurrentTime ] = useState();
     const [ inputProgressValue, setInputProgressValue ] = useState(0);
     const [ play, setPlay ] = useState(false);
@@ -42,22 +42,30 @@ const Player = () => {
 
 
     useEffect(() => {
-        //Resgatando informação de volume do localStorage
+        //Resgatar informação de volume do LocalStorage e setar state correspondente
         const volumeLocalStorage = localStorage.getItem('volume') || 100;
         setVolume(volumeLocalStorage);
 
-        //Resgatando informação se a música está entre as curtidas
+        //Verificar se a música está entre as curtidas e setar state correspondente
         if(currentMusic && likedMusicsPlaylist){
             const isLiked = likedMusicsPlaylist.musics.find(music => music.title === currentMusic.title);
             setLiked(isLiked);
-        }
+        };
 
     }, [setVolume, likedMusicsPlaylist, currentMusic]);
 
 
-    //Atualizar Progresso
+    //Converter / Formatar Tempo (formato "minutos : segundos")
+    function timeToMinutes(time){
+        let minutes = Math.floor(time / 60);
+        let seconds = Math.floor(time % 60);
+        seconds = (seconds.toString()).padStart(2, '0');
+        return { minutes, seconds };
+    };
+
+    //Atualizar Barra de Progresso e Tempo Atual
     function handleProgress(value){
-        //Atualizar barra e input
+        //Atualizar barra e input de progresso
         let progress = Math.floor(value / durationPercentage);
         progressBar.style.width = `${progress}%`;
         setInputProgressValue(progress);
@@ -67,54 +75,66 @@ const Player = () => {
         setCurrentTime(`${minutes}:${seconds}`);
     };
     
-    //Setar/atualizar tempo da música ao clicar no input de progresso
+    //Setar / Atualizar tempo da música ao clicar no input de progresso
     function setMusicTime(value){
+
+        /*Caso value === 100, necessário forçar seu valor para 99.9,
+        pois com valor 100 acontecia um comportamento inesperado onde mais de uma música ser "passada / pulada"*/
         if(value === '100'){
             value = 99.9;
         };
+
+        //Setar novo valor
         music.currentTime = value * durationPercentage;
+
+        //Play
         music.play();
         if(play === false){
             setPlay(true);
         };
     };
 
-    //Ações após uma música ser carregada
+    //Ações após carregar música
     function actionsAfterLoad(){
 
-        //Obtendo e setando duração da música
-        let time = music.duration
+        //Obter e setar duração da música
+        let time = music.duration;
         let { minutes, seconds } = timeToMinutes(time);
         setDuration(`${minutes}:${(seconds)}`);
         setDurationPercentage(time / 100);
 
-        //Setando Volume
+        //Setar Volume
         handleVolume(volume);
 
-        //Play / Executar música
+        //Play
         music.play();
         setPlay(true);
     };
 
-    //Ações dos botões de controle
+    //Play / Plause - Executar e Pausar música
     function handlePlayPause(){
         play ? music.pause() : music.play();
         setPlay(!play);
-    }
-
-    function handlePrevNextMusic(action){
-        let newIndex = currentMusicIndex;
-
-        if(action === 'prev'){
-            newIndex--
-        }else if(action === 'next'){
-            newIndex++
-        };
-
-        const nextMusic = currentPlaylist.musics[newIndex];
-        setCurrentMusicData({playlist: currentPlaylist, music: nextMusic, index: newIndex});
     };
 
+    //Prev / Next - Passar ou Voltar música
+    function handlePrevNextMusic(action){
+
+        let newIndex = currentMusicIndex;
+
+        //Checar ações requerida e executar
+        if(action === 'prev'){
+            newIndex--;
+        }else if(action === 'next'){
+            newIndex++;
+        };
+
+        //Setar música que deverá ser executada
+        const newMusic = currentPlaylist.musics[newIndex];
+        setCurrentMusicData({playlist: currentPlaylist, music: newMusic, index: newIndex});
+    };
+
+    //Setar Volume
     function handleVolume(value){
         setVolume(value);
         music.volume = (value / 100);
@@ -122,33 +142,32 @@ const Player = () => {
         localStorage.setItem('volume', value);
     };
 
+    //Curtir ou Descurtir música
     function handleLike(){
         handleLikeMusic(currentMusic);
         setLiked(!liked);
     };
 
-    //Ações quando a música terminar
+    //Ações ao terminar música
     function handleEnd(){
+
+        //Resetar states de execução, tempo e progresso
         setPlay(false);
-        setInputProgressValue(0);
         setCurrentTime(null);
+        setInputProgressValue(0);
         progressBar.style.width = '0%';
+
+        //Setar próxima música da playlist para executar
         if(currentMusicIndex < (currentPlaylist.musics.length - 1)){
             handlePrevNextMusic('next');
         };
-    };
-
-    function timeToMinutes(time){
-        let minutes = Math.floor(time / 60);
-        let seconds = Math.floor(time % 60);
-        seconds = (seconds.toString()).padStart(2, '0');
-        return { minutes, seconds };
     };
 
 
     return(
         <section id="player" className={currentMusic && 'show'}>
 
+            {/* Audio */}
             <audio 
                 src={currentMusic && currentMusic.src} 
                 ref={audioEl} 
@@ -158,13 +177,20 @@ const Player = () => {
             >
             </audio>
             
+
+            {/* Controladores / Botões do Player */}
             <div id='player-controls'>
 
+                {/* Display Título da Música */}
                 <div id='music-display'>
                     <span id='music-title'>{currentMusic && `${currentMusic.title} - ${currentMusic.artist}`}</span>
                 </div>
 
+
+                {/* Botões de controle: Play, Pause, Prev, Next, Like */}
                 <div id='controls-panel'>
+
+                    {/* Btn Prev */}
                     <button 
                         type='button' 
                         id='btn-prev' 
@@ -175,6 +201,7 @@ const Player = () => {
                         <i className="bi bi-caret-left-fill"></i>
                     </button>
 
+                    {/* Btn Play / Pause */}
                     <button 
                         type='button' 
                         id='btn-play-pause' 
@@ -183,6 +210,7 @@ const Player = () => {
                         { play ? <i className="bi bi-pause-circle-fill"></i> : <i className="bi bi-play-circle-fill"></i> }
                     </button>
 
+                    {/* Btn Next */}
                     <button 
                         type='button' 
                         id='btn-next' 
@@ -193,11 +221,14 @@ const Player = () => {
                         <i className="bi bi-caret-right-fill"></i>
                     </button>
 
+                    {/* Btn Like */}
                     <button id='btn-like' onClick={() => handleLike()}>
                         { liked ? <i className="bi bi-heart-fill"></i> : <i className="bi bi-heart"></i> }
                     </button>
                 </div>
 
+
+                {/* Barra de Progresso e Displays de Tempo */}
                 <div id='progress-container'>
                     <input 
                         type="range" 
@@ -212,6 +243,8 @@ const Player = () => {
                     <span id='duration'>{duration ? duration : '0:00'}</span>
                 </div>
 
+
+                {/* Controle de Volume */}
                 <div id="volume-container">
                     <label htmlFor="volume-input">
                         <i className="bi bi-volume-up-fill"></i>
@@ -230,7 +263,6 @@ const Player = () => {
                 </div>
 
             </div>
-
         </section>
     );
 

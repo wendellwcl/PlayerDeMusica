@@ -16,13 +16,13 @@ const Header = () => {
 
     const { darkmode, handleToggleDarkmode } = useContext(DarkmodeContext);
 
+
     return(
         <header>
             <nav className='navbar'>
                 <div className='container'>
                     <Link className='navbar-brand' to='/'>
-                        <i className='bi bi-music-note-beamed me-2'></i>
-                        Music
+                        <i className='bi bi-music-note-beamed me-2'></i> Music
                     </Link>
                     <SwitchCheckbox htmlFor='switch-checkbox-header' id='switch-header'>
                         <span className='switch-text'>Dark mode</span>

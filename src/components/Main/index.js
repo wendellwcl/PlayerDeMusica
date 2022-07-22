@@ -15,7 +15,6 @@ const Main = () => {
 
     return(
         <main>
-
             <Routes>
                 <Route path='/' element={<Home/>}/>
                 <Route path='/playing' element={<Playing/>}>
@@ -24,7 +23,6 @@ const Main = () => {
                 <Route path='/liked' element={<Liked/>}/>
                 <Route path='playlist/:playlistName' element={<Playlist/>}/>
             </Routes>
-
         </main>
     );
 

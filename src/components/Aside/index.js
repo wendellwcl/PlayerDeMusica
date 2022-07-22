@@ -9,28 +9,26 @@ const Aside = () => {
 
     return(
         <aside>
-
             <ul className='nav flex-column'>
+
                 <li className='nav-item'>
                     <NavLink className='nav-link' to='/'>
-                        <i className='bi bi-house-fill'></i>
-                        Início
+                        <i className='bi bi-house-fill'></i> Início
                     </NavLink>
                 </li>
+
                 <li className='nav-item'>
                     <NavLink className='nav-link' to='/playing'>
-                        <i className='bi bi-music-note-list'></i>
-                        Tocando agora
+                        <i className='bi bi-music-note-list'></i> Tocando agora
                     </NavLink>
                 </li>
+
                 <li className='nav-item'>
                     <NavLink className='nav-link' to='/liked'>
-                        <i className='bi bi-heart-fill'></i>
-                        Músicas curtidas
+                        <i className='bi bi-heart-fill'></i> Músicas curtidas
                     </NavLink>
                 </li>
             </ul>
-
         </aside>
     );
 
