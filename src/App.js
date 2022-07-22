@@ -6,6 +6,7 @@ import { HashRouter } from 'react-router-dom';
 import { useContext, useEffect } from 'react';
 
 //Components
+import InitialModal from './components/InitialModal';
 import Header from './components/Header';
 import Main from './components/Main';
 import Aside from './components/Aside';
@@ -33,15 +34,18 @@ function App() {
   
 
   return (
-    <HashRouter>
-      <div className={`app ${darkmode && 'dark'}`}>
-        <Header/>
-        <Aside/>
-        <Main/>
-        <Player/>
-        <MobileNav/>
-      </div>  
-    </HashRouter>
+    <>
+      <InitialModal/>
+      <HashRouter>
+        <div className={`app ${darkmode && 'dark'}`}>
+          <Header/>
+          <Aside/>
+          <Main/>
+          <Player/>
+          <MobileNav/>
+        </div>  
+      </HashRouter>
+    </>
   );
 
 };
