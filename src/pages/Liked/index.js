@@ -24,7 +24,7 @@ const Liked = () => {
         return(
             <section>
                 <h2 id='playlist-title'>músicas curtidas</h2>
-                <span className="info-msg">Você não possui músicas favoritadas.</span>
+                <span className="info-msg">Você ainda não curtiu nenhuma música.</span>
             </section>
         );
     };

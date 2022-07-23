@@ -17,8 +17,8 @@
     width: 100%;
     max-width: 750px;
     height: 100%;
-    min-height: 250px;
-    max-height: 500px;
+    min-height: 350px;
+    max-height: 700px;
     padding: 1rem;
     border-radius: 1rem;
     background-color: var(--high-pure);
@@ -59,7 +59,13 @@
 }
 
 #initial-modal-list>li{
+    border-radius: 1rem;
+    padding: .2rem;
     margin-bottom: .5rem;
+}
+
+#initial-modal-list>li:hover{
+    background-color: var(--high-light);
 }
 
 #initial-modal-list .music-title{
@@ -79,9 +85,4 @@
 
 #initial-modal a{
     text-decoration: none;
-    color: var(--primary-pure);
-}
-
-#initial-modal a:hover{
-    color: var(--primary-dark);
 }
