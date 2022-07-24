@@ -196,7 +196,7 @@ const Player = () => {
                         id='btn-prev' 
                         className='player-btn' 
                         disabled={currentMusicIndex <= 0}
-                        onClick={e => handlePrevNextMusic('prev')}
+                        onClick={() => handlePrevNextMusic('prev')}
                     >
                         <i className="bi bi-caret-left-fill"></i>
                     </button>
@@ -216,7 +216,7 @@ const Player = () => {
                         id='btn-next' 
                         className='player-btn' 
                         disabled={currentPlaylist && (currentMusicIndex >= (currentPlaylist.musics.length - 1))}
-                        onClick={e => handlePrevNextMusic('next')}
+                        onClick={() => handlePrevNextMusic('next')}
                     >
                         <i className="bi bi-caret-right-fill"></i>
                     </button>

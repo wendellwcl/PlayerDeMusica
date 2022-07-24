@@ -7,7 +7,7 @@ main{
 }
 
 ::-webkit-scrollbar{
-    width: .75em;
+    width: 1rem;
 }
 
 ::-webkit-scrollbar-track{
@@ -15,7 +15,7 @@ main{
 }
 
 ::-webkit-scrollbar-thumb{
-    background: var(--high-medium);
+    background: var(--low-dark);
     border-radius: 100vw;
     border: 3px solid var(--high-pure);
 }
@@ -24,10 +24,13 @@ main{
     background-color: var(--primary-pure);
 }
 
-@supports(scrollbar-color: var(--primary-pure) transparent){
+@supports(scrollbar-color: var(--primary-pure) var(--low-dark)){
     *{
-        scrollbar-color: var(--high-medium) transparent;
         scrollbar-width: thin;
+    }
+    
+    .dark *{
+        scrollbar-color: var(--high-pure) transparent;
     }
 
     :hover{
@@ -42,5 +45,6 @@ main{
 }
 
 .dark ::-webkit-scrollbar-thumb{
+    background-color: var(--high-pure);
     border-color: var(--low-pure);
 }
