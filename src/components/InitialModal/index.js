@@ -37,7 +37,9 @@ const InitialModal = () => {
                             <ul>
                                 <li className='music-title'>Música: Smile For Me</li>
                                 <li>Autor: Kidcut</li>
-                                <li><a href="https://uppbeat.io/t/kidcut/smile-for-me">https://uppbeat.io/t/kidcut/smile-for-me</a></li>
+                                <li><a href="https://uppbeat.io/t/kidcut/smile-for-me" target='_blank' rel='noreferrer'>
+                                    https://uppbeat.io/t/kidcut/smile-for-me
+                                </a></li>
                                 <li>License code: 4TJIHW2NY9NOPUOV</li>
                                 <li>Music from Uppbeat (free for Creators!)</li>
                             </ul>
@@ -46,7 +48,9 @@ const InitialModal = () => {
                             <ul>
                                 <li className='music-title'>Música: Oly</li>
                                 <li>Autor: Walz</li>
-                                <li><a href="https://uppbeat.io/t/walz/oly">https://uppbeat.io/t/walz/oly</a></li>
+                                <li><a href="https://uppbeat.io/t/walz/oly" target='_blank' rel='noreferrer'>
+                                    https://uppbeat.io/t/walz/oly
+                                </a></li>
                                 <li>License code: HW7DXDL0GNPWYGQV</li>
                                 <li>Music from Uppbeat (free for Creators!)</li>
                             </ul>
@@ -55,7 +59,9 @@ const InitialModal = () => {
                             <ul>
                                 <li className='music-title'>Música: Jump around</li>
                                 <li>Autor: All Good Folks</li>
-                                <li><a href="https://uppbeat.io/t/all-good-folks/jump-around">https://uppbeat.io/t/all-good-folks/jump-around</a></li>
+                                <li><a href="https://uppbeat.io/t/all-good-folks/jump-around" target='_blank' rel='noreferrer'>
+                                    https://uppbeat.io/t/all-good-folks/jump-around
+                                </a></li>
                                 <li>License code: UTSPP91XSBYIWNO3</li>
                                 <li>Music from Uppbeat (free for Creators!)</li>
                             </ul>
