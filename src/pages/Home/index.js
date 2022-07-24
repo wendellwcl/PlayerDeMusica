@@ -3,6 +3,7 @@ import './home.css';
 
 //Imports
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 
 //Components
 import CardHome from '../../components/CardHome';
@@ -14,7 +15,7 @@ import Travis from '../../assets/img/travisscott.png';
 import TheWeeknd from '../../assets/img/theweeknd.png';
 import World from '../../assets/img/world.png';
 import Brasil from '../../assets/img/brasil.png';
-import { useEffect } from 'react';
+import Dance from '../../assets/img/dance.png';
 
 
 const Home = () => {
@@ -29,14 +30,13 @@ const Home = () => {
     const playlistsTop = [
         {img: World, name: 'Top 50 mundo'},
         {img: Brasil, name: 'Top 50 Brasil'},
+        {img: Dance, name: 'Top Dance'},
         {img: World, name: 'Top 50 mundo'},
         {img: Brasil, name: 'Top 50 Brasil'},
+        {img: Dance, name: 'Top Dance'},
         {img: World, name: 'Top 50 mundo'},
         {img: Brasil, name: 'Top 50 Brasil'},
-        {img: World, name: 'Top 50 mundo'},
-        {img: Brasil, name: 'Top 50 Brasil'},
-        {img: World, name: 'Top 50 mundo'},
-        {img: Brasil, name: 'Top 50 Brasil'}
+        {img: Dance, name: 'Top Dance'}
     ];
 
     const sections = [
