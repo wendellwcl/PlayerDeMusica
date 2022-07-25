@@ -24,12 +24,12 @@ const SectionHome = ( {sectionData, index} ) => {
 
             //Caso: largura do conteúdo interno seja maior que a largura do container: adicionar classe responsável por mostrar os botões
             if(width > parentWidth){
-                parentEl.childNodes[0].classList.add('show');
-                parentEl.childNodes[1].classList.add('show');
+                document.querySelector(`#btn-left-${index}`).classList.add('show');
+                document.querySelector(`#btn-rigth-${index}`).classList.add('show');
             } else {
                 //Caso não, retirar a classe, para que os botões não sejam mais exibidos
-                parentEl.childNodes[0].classList.remove('show');
-                parentEl.childNodes[1].classList.remove('show');
+                document.querySelector(`#btn-left-${index}`).classList.remove('show');
+                document.querySelector(`#btn-rigth-${index}`).classList.remove('show');
             };
 
             //Caso a tela seja redimensionada, resetar posicionamentos
@@ -95,10 +95,10 @@ const SectionHome = ( {sectionData, index} ) => {
         <section key={sectionData.sectionName} className='section-container'>
             <h2 className='section-title'>Top {sectionData.sectionName}</h2>
             <div className='cards-container'>
-                <button type='button' className='btn-row' onClick={() => handleRowScroll('left')}>
+                <button type='button' id={`btn-left-${index}`} className='btn-row' onClick={() => handleRowScroll('left')}>
                     <i className="bi bi-caret-left-fill"></i>
                 </button>
-                <button type='button' className='btn-row' onClick={() => handleRowScroll('right')}>
+                <button type='button' id={`btn-rigth-${index}`} className='btn-row' onClick={() => handleRowScroll('right')}>
                     <i className="bi bi-caret-right-fill"></i>
                 </button>
                 <div className="cards-row" id={`section-${index}`}>
