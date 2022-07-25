@@ -3,10 +3,9 @@ import './home.css';
 
 //Imports
 import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
 
 //Components
-import CardHome from '../../components/CardHome';
+import SectionHome from '../../components/SectionHome';
 
 //Assets
 import Jcole from '../../assets/img/jcole.png';
@@ -44,98 +43,6 @@ const Home = () => {
         {sectionName: 'playlists', arr: playlistsTop}
     ];
 
-    //Checar e monitorar largura da tela para setar display dos botões de cada seção
-    useEffect(() => {
-
-        function handleResize(){
-            //Referenciar elementos e percorrê-los
-            document.querySelectorAll('.cards-row').forEach(el => {
-                //Obter medidas
-                const width = el.offsetWidth;
-                const parent = el.parentNode;
-                const parentWidth = parent.offsetWidth;
-
-                //Caso: largura do conteúdo interno seja maior que a largura do container: adicionar classe responsável por mostrar os botões
-                if(width > parentWidth){
-                    parent.childNodes[0].classList.add('show');
-                    parent.childNodes[1].classList.add('show');
-                } else {
-                    //Caso não, retirar a classe, para que os botões não sejam mais exibidos
-                    parent.childNodes[0].classList.remove('show');
-                    parent.childNodes[1].classList.remove('show');
-                };
-
-                //Caso a tela seja redimensionada, resetar posicionamentos
-                //Isso impede comportamentos indesejados e garante que o elemento não quebre
-                el.style.marginLeft = '0px';
-                parent.scrollTo(0, 0);
-            });
-        };
-
-        //Adicionar listener de execução
-        window.addEventListener('resize', handleResize);
-
-        //Executar função ao carregar
-        handleResize();
-    });
-
-
-    //Realizar scroll das seções através dos botões
-    function handleRowScroll(target, action){
-
-        //Variável que irá receber o elemento selecionado
-        let rowEl;
-
-        //Referenciar elemento pai / container
-        const parent = target.parentNode;
-
-        //Obter elementos que fazem parte da seção
-        const nodeList = parent.childNodes;
-        //Iterar sobre os elementos e setar o elemento desejado
-        nodeList.forEach(item => {
-            if(item.classList.contains('cards-row')){
-                rowEl = item;
-            };
-        });
-
-        //Obter valor atual da marginLeft do elemento que será manipulado
-        let currentMarginValue = window.getComputedStyle(rowEl).getPropertyValue('margin-left');
-        //Formatar o valor (tipo Number)
-        currentMarginValue = parseInt(currentMarginValue.replace('px', ''));
-
-        //Obter largura da tela (será utilizada no cálculo do valor de scroll)
-        const slideValue = window.innerWidth / 2;
-
-        //Checar ação a ser feita
-        if(action === 'right'){
-            //Calcular valor de scroll
-            let value = currentMarginValue - slideValue;
-
-            if(value < (parent.offsetWidth - rowEl.offsetWidth)){
-                //Caso valor de scroll ultrapasse o máximo/mínimo que o elemento deve ser 'scrollado', setar valor para o máximo desejado
-                value = (parent.offsetWidth - rowEl.offsetWidth) - 40;
-                //Setar valor ao elemento
-                rowEl.style.marginLeft = `${value}px`;
-            } else {
-                //Caso valor esteja dentro do desejado, setar valor ao elemento
-                rowEl.style.marginLeft = `${value}px`;
-            };
-            
-        } else if (action === 'left'){
-            //Calcular valor
-            let value = currentMarginValue + slideValue;
-            if(value > 0){
-                //Caso valor de scroll ultrapasse o máximo/mínimo que o elemento deve ser 'scrollado', setar valor para o máximo desejado
-                value = 0;
-                //Setar valor ao elemento
-                rowEl.style.marginLeft = `${value}px`;
-            } else {
-                //Caso valor esteja dentro do desejado, setar valor ao elemento
-                rowEl.style.marginLeft = `${value}px`;
-            };
-        };
-    };
-
 
     return(
         <section className='home-container'>
@@ -151,23 +58,8 @@ const Home = () => {
             </section>
 
             {/* Seções */}
-            {sections.map(section => (
-                <section key={section.sectionName} className='section-container'>
-                    <h2 className='section-title'>Top {section.sectionName}</h2>
-                    <div className='cards-container'>
-                        <button type='button' className='btn-row' onClick={e => handleRowScroll(e.target, 'left')}>
-                            <i className="bi bi-caret-left-fill"></i>
-                        </button>
-                        <button type='button' className='btn-row' onClick={e => handleRowScroll(e.target, 'right')}>
-                            <i className="bi bi-caret-right-fill"></i>
-                        </button>
-                        <div className="cards-row">
-                            {section.arr.map((item, i) => (
-                                <CardHome key={i} name={item.name} img={item.img} />
-                            ))}
-                        </div>
-                    </div>
-                </section>
+            {sections.map((item, i) => (
+                <SectionHome key={i} sectionData={item} index={i}/>
             ))}
 
             {/* Modal */}
