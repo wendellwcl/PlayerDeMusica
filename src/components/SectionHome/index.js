@@ -93,7 +93,7 @@ const SectionHome = ( {sectionData, index} ) => {
 
     return(
         <section key={sectionData.sectionName} className='section-container'>
-            <h2 className='section-title'>Top {sectionData.sectionName}</h2>
+            <h2 className='section-title'>{sectionData.sectionName}</h2>
             <div className='cards-container'>
                 <button type='button' id={`btn-left-${index}`} className='btn-row' onClick={() => handleRowScroll('left')}>
                     <i className="bi bi-caret-left-fill"></i>

@@ -39,8 +39,9 @@ const Home = () => {
     ];
 
     const sections = [
-        {sectionName: 'artistas', arr: artists},
-        {sectionName: 'playlists', arr: playlistsTop}
+        {sectionName: 'Top artistas', arr: artists},
+        {sectionName: 'Top playlists', arr: playlistsTop},
+        {sectionName: 'Mais playlists', arr: playlistsTop}
     ];
 
 
