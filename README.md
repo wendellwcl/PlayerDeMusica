@@ -2,7 +2,7 @@
     <img src='./src/assets/img/music.png' alt='logo do projeto: Music' width='400'>
 </h1>
 
-<h2 align='center'><a href='https://wendellwcl.github.io' target='_blank' style='display: block; color: #FF305C; font-weight: bold; margin: 30px'>Visitar projeto.</a></h2>
+<h2 align='center'><a href='https://wendellwcl.github.io/PlayerDeMusica/' target='_blank' style='display: block; color: #FF305C; font-weight: bold; margin: 30px'>Visitar projeto.</a></h2>
 
 
 <hr/>
@@ -43,7 +43,7 @@
     Resolvi encarar o desafio de criar um player de música, para aprender e praticar sobre a utilização de áudios.
     Neste projeto tive a oportunidade de desenvolver várias funcionalidades ao redor dessa ideia principal, criando tudo do zero.
     Mas não só isso, também produzi uma aplicação aproveitando todo o contexto, com algumas outras mecânicas que vale a pena conferir: 
-    <a href='https://wendellwcl.github.io' target='_blank' style='display: block; color: #FF305C; font-weight: bold; margin: 30px'>Clique aqui para acessar o projeto.</a>
+    <a href='https://wendellwcl.github.io/PlayerDeMusica/' target='_blank' style='display: block; color: #FF305C; font-weight: bold; margin: 30px'>Clique aqui para acessar o projeto.</a>
 </p>
 
 <p align='center'style='margin-bottom: 30px'>
