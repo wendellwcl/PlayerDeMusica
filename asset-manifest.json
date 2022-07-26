@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/PlayerDeMusica/static/css/main.bbf419af.css",
+    "main.js": "/PlayerDeMusica/static/js/main.fd67ccbf.js",
+    "static/media/smile-for-me-kidcut-main-version-01-26-3177.mp3": "/PlayerDeMusica/static/media/smile-for-me-kidcut-main-version-01-26-3177.3cb936135bd73c86e899.mp3",
+    "static/media/oly-walz-main-version-01-06-12377.mp3": "/PlayerDeMusica/static/media/oly-walz-main-version-01-06-12377.7b100f6b47251bedd177.mp3",
+    "static/media/jump-around-all-good-folks-main-version-00-49-750.mp3": "/PlayerDeMusica/static/media/jump-around-all-good-folks-main-version-00-49-750.612d67992420b4e9516c.mp3",
+    "static/media/highlight-bg.png": "/PlayerDeMusica/static/media/highlight-bg.0ee18bf304dc2fd44e48.png",
+    "static/media/jcole.png": "/PlayerDeMusica/static/media/jcole.3f80fca8a5b24392a6b1.png",
+    "static/media/brasil.png": "/PlayerDeMusica/static/media/brasil.ee7ac0a532714b3b1412.png",
+    "static/media/theweeknd.png": "/PlayerDeMusica/static/media/theweeknd.1ad78c999e94c827d7cf.png",
+    "static/media/dance.png": "/PlayerDeMusica/static/media/dance.7cfb772fa4301f1131ce.png",
+    "static/media/kendricklamar.png": "/PlayerDeMusica/static/media/kendricklamar.f8d13071c05d2e9db482.png",
+    "static/media/world.png": "/PlayerDeMusica/static/media/world.1eb762e50d628c3e6790.png",
+    "static/media/travisscott.png": "/PlayerDeMusica/static/media/travisscott.f6b2351961cbe58961e1.png",
+    "index.html": "/PlayerDeMusica/index.html",
+    "main.bbf419af.css.map": "/PlayerDeMusica/static/css/main.bbf419af.css.map",
+    "main.fd67ccbf.js.map": "/PlayerDeMusica/static/js/main.fd67ccbf.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bbf419af.css",
+    "static/js/main.fd67ccbf.js"
+  ]
+}
