@@ -9,6 +9,7 @@ import Home from '../../pages/Home';
 import Playing from '../../pages/Playing';
 import Liked from '../../pages/Liked';
 import Playlist from '../../pages/Playlist';
+import NotFound from '../NotFound';
 
 
 const Main = () => {
@@ -22,6 +23,7 @@ const Main = () => {
                 </Route>
                 <Route path='/liked' element={<Liked/>}/>
                 <Route path='playlist/:playlistName' element={<Playlist/>}/>
+                <Route path='*' element={<NotFound/>}/>
             </Routes>
         </main>
     );

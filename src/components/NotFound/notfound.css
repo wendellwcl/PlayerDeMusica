@@ -1,0 +1,18 @@
+#not-found-msg{
+    text-align: center;
+}
+
+#not-found-msg h2{
+    font-size: 5rem;
+    color: var(--primary-pure);
+}
+
+#not-found-msg p{
+    color: var(--low-pure);
+}
+
+
+/* ------------------------- DarkMode ------------------------- */
+.dark #not-found-msg p{
+    color: var(--high-pure);
+}
