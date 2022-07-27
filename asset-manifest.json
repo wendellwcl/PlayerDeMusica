@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/PlayerDeMusica/static/css/main.bbf419af.css",
+    "main.css": "/PlayerDeMusica/static/css/main.137b2eb1.css",
     "main.js": "/PlayerDeMusica/static/js/main.fd67ccbf.js",
     "static/media/smile-for-me-kidcut-main-version-01-26-3177.mp3": "/PlayerDeMusica/static/media/smile-for-me-kidcut-main-version-01-26-3177.3cb936135bd73c86e899.mp3",
     "static/media/oly-walz-main-version-01-06-12377.mp3": "/PlayerDeMusica/static/media/oly-walz-main-version-01-06-12377.7b100f6b47251bedd177.mp3",
@@ -14,11 +14,11 @@
     "static/media/world.png": "/PlayerDeMusica/static/media/world.1eb762e50d628c3e6790.png",
     "static/media/travisscott.png": "/PlayerDeMusica/static/media/travisscott.f6b2351961cbe58961e1.png",
     "index.html": "/PlayerDeMusica/index.html",
-    "main.bbf419af.css.map": "/PlayerDeMusica/static/css/main.bbf419af.css.map",
+    "main.137b2eb1.css.map": "/PlayerDeMusica/static/css/main.137b2eb1.css.map",
     "main.fd67ccbf.js.map": "/PlayerDeMusica/static/js/main.fd67ccbf.js.map"
   },
   "entrypoints": [
-    "static/css/main.bbf419af.css",
+    "static/css/main.137b2eb1.css",
     "static/js/main.fd67ccbf.js"
   ]
 }
